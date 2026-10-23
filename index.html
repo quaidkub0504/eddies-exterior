@@ -14,6 +14,7 @@
 <link rel="icon" type="image/png" href="favicon.png">
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>:root{padding-top:env(safe-area-inset-top);padding-bottom:env(safe-area-inset-bottom)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Eddie's Exterior Services","telephone":"+1-810-316-0788","url":"https://eddies.altevadigital.com/","image":"https://eddies.altevadigital.com/og.jpg","slogan":"Cleaner. Brighter. Better.","address":{"@type":"PostalAddress","addressLocality":"Brighton","addressRegion":"MI","addressCountry":"US"},"areaServed":[{"@type":"City","name":"Brighton, MI"},{"@type":"City","name":"Howell, MI"},{"@type":"City","name":"Hartland, MI"},{"@type":"City","name":"Milford, MI"},{"@type":"City","name":"South Lyon, MI"},{"@type":"City","name":"Pinckney, MI"},{"@type":"City","name":"Fenton, MI"},{"@type":"City","name":"Highland, MI"},{"@type":"City","name":"Whitmore Lake, MI"},{"@type":"City","name":"Hamburg, MI"},{"@type":"City","name":"New Hudson, MI"},{"@type":"City","name":"Fowlerville, MI"}],"knowsAbout":["House washing","Roof cleaning","Gutter cleaning","Deck cleaning","Patio cleaning","Driveway cleaning","Soft washing","Pressure washing"]}</script>
 <title>Eddie's Exterior Services</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,7 +47,7 @@
   color-scheme:light;
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;overflow-x:clip}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--bg)}
 body.locked{overflow:hidden}
@@ -520,6 +521,151 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,160%);z-index:120;background:var(--brand);color:#fff;padding:12px 18px;border-radius:999px;font-size:.94rem;font-weight:600;box-shadow:0 18px 40px -16px rgba(0,0,0,.5);transition:transform .45s cubic-bezier(.2,.8,.2,1);max-width:calc(100% - 32px);text-align:center}
 .toast.show{transform:translate(-50%,0)}
 
+/* ---------- Nav: active section + mobile menu ---------- */
+.nav > .wrap{position:relative}
+.day .dw{font-size:.7rem;line-height:1}
+.day[aria-pressed="true"] .dw{filter:drop-shadow(0 0 2px rgba(255,255,255,.8))}
+.nav-links a.on{color:var(--brand);background:var(--sky)}
+.burger{display:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;cursor:pointer;place-items:center;flex-shrink:0}
+.burger i{display:block;width:18px;height:2px;border-radius:2px;background:var(--brand);position:relative;transition:background .2s}
+.burger i::before,.burger i::after{content:"";position:absolute;left:0;width:18px;height:2px;border-radius:2px;background:var(--brand);transition:transform .3s cubic-bezier(.2,.8,.2,1)}
+.burger i::before{top:-6px}.burger i::after{top:6px}
+.burger[aria-expanded="true"] i{background:transparent}
+.burger[aria-expanded="true"] i::before{transform:translateY(6px) rotate(45deg)}
+.burger[aria-expanded="true"] i::after{transform:translateY(-6px) rotate(-45deg)}
+.menu{position:absolute;left:max(16px,env(safe-area-inset-left,0px));right:max(16px,env(safe-area-inset-right,0px));top:calc(100% + 10px);border-radius:28px;background:rgba(255,255,255,.92);backdrop-filter:blur(20px) saturate(1.6);-webkit-backdrop-filter:blur(20px) saturate(1.6);border:1px solid #fff;box-shadow:var(--shadow-lg);padding:10px;display:grid;gap:2px;transform-origin:top center;transition:opacity .25s,transform .3s cubic-bezier(.2,.8,.2,1)}
+.menu[hidden]{display:grid!important;opacity:0;transform:translateY(-8px) scale(.98);pointer-events:none;visibility:hidden}
+.menu a{display:flex;justify-content:space-between;align-items:center;text-decoration:none;font-family:var(--f-display);font-weight:800;font-size:1.5rem;text-transform:uppercase;color:var(--brand);padding:12px 16px;border-radius:18px}
+.menu a:hover,.menu a:focus-visible{background:var(--sky)}
+.menu a span{color:var(--royal);font-size:1.1rem}
+.menu-cta{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px 6px 4px}
+.menu-cta .btn{font-size:1rem;padding:13px 10px;justify-content:center}
+@media (max-width:1100px){.burger{display:grid}}
+
+/* ---------- Mobile action dock ---------- */
+.dock{position:fixed;left:10px;right:10px;bottom:calc(10px + env(safe-area-inset-bottom,0px));z-index:90;display:none;grid-template-columns:1fr 1fr 1.4fr;gap:6px;padding:6px;border-radius:24px;background:rgba(10,46,102,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 20px 40px -14px rgba(0,20,60,.6);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.dock a,.dock button{display:flex;align-items:center;justify-content:center;gap:7px;text-decoration:none;border:0;border-radius:18px;padding:12px 6px;font-family:var(--f-display);font-weight:800;font-size:1.02rem;letter-spacing:.05em;text-transform:uppercase;color:#fff;background:rgba(255,255,255,.1);cursor:pointer}
+.dock .go{background:var(--grad)}
+.dock.away{transform:translateY(calc(100% + 30px))}
+@media (max-width:760px){.dock{display:grid}.nav-right > .btn{display:none}footer{padding-bottom:110px}.toast{bottom:calc(84px + env(safe-area-inset-bottom,0px))}}
+
+/* ---------- Live weather chip ---------- */
+.hero-chips{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.wx{display:inline-flex;align-items:center;gap:8px;background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--glass-line);border-radius:999px;padding:7px 14px 7px 10px;font-size:.92rem;font-weight:600;color:var(--brand);box-shadow:var(--shadow-md)}
+.wx[hidden]{display:none}
+.wx .wi{font-size:1.1rem;line-height:1}
+.wx b{font-family:var(--f-display);font-weight:800;font-size:1.05rem}
+.wx .ok{color:#0E8C69}.wx .meh{color:#B26A00}
+
+/* ---------- Seasons ---------- */
+.seasons{display:grid;gap:18px}
+.season-tabs{display:flex;gap:6px;flex-wrap:wrap;background:#fff;border:1px solid var(--line);border-radius:999px;padding:6px;justify-self:start;box-shadow:var(--shadow-md);position:relative}
+.season-tabs button{position:relative;z-index:1;border:0;background:none;cursor:pointer;font-family:var(--f-display);font-weight:800;font-size:1.05rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:10px 18px;border-radius:999px;display:inline-flex;align-items:center;gap:8px;transition:color .3s}
+.season-tabs button[aria-selected="true"]{color:#fff}
+.season-tabs .now-tag{font-family:var(--f-mono);font-size:.62rem;letter-spacing:.06em;background:var(--mint);color:#fff;padding:2px 6px;border-radius:6px}
+.season-pill{position:absolute;top:6px;bottom:6px;border-radius:999px;background:var(--grad);transition:left .45s cubic-bezier(.7,0,.2,1),width .45s cubic-bezier(.7,0,.2,1);box-shadow:0 8px 18px -8px rgba(22,115,214,.8)}
+.season-card{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);border-radius:36px;overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-lg);min-height:440px}
+.season-art{position:relative;padding:clamp(24px,4vw,44px);color:#fff;display:flex;flex-direction:column;gap:16px;overflow:hidden;isolation:isolate;transition:background .6s}
+.season-art::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(500px circle at 90% 0%,rgba(255,255,255,.28),transparent 60%)}
+.season-art .big{position:absolute;right:-20px;bottom:-60px;font-family:var(--f-display);font-weight:900;font-size:clamp(8rem,18vw,15rem);line-height:1;color:rgba(255,255,255,.12);text-transform:uppercase;z-index:-1;pointer-events:none;letter-spacing:-.02em}
+.season-art .when{font-family:var(--f-mono);font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;opacity:.85}
+.season-art h3{color:#fff;font-size:clamp(2.4rem,4.6vw,4rem);font-weight:900;line-height:.9}
+.season-art h3 .script{color:#FFE38A;display:inline-block;transform:rotate(-3deg)}
+.season-art p{max-width:46ch;color:rgba(255,255,255,.9);font-size:1.06rem}
+.todo{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.todo li{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);border-radius:18px;padding:12px 14px;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);animation:pop .4s ease both}
+.todo li:nth-child(2){animation-delay:.06s}.todo li:nth-child(3){animation-delay:.12s}
+.todo li b{display:block;font-family:var(--f-display);font-weight:800;font-size:1.2rem;text-transform:uppercase;letter-spacing:.02em}
+.todo li span{font-size:.93rem;opacity:.88}
+.todo .ti{width:38px;height:38px;border-radius:12px;background:#fff;color:var(--royal);display:grid;place-items:center;flex-shrink:0}
+.todo .ti svg{width:22px;height:22px}
+.season-art .cta-row{margin-top:auto;padding-top:8px}
+.season-art .btn-white{color:var(--royal)}
+.s-spring{background:linear-gradient(150deg,#0E8C69 0%,#12B386 45%,#1EC0EC 120%)}
+.s-summer{background:linear-gradient(150deg,#1673D6 0%,#2F8CFF 50%,#1EC0EC 110%)}
+.s-fall{background:linear-gradient(150deg,#0A2E66 0%,#B4410F 75%,#FFB020 130%)}
+.s-winter{background:linear-gradient(150deg,#0A2E66 0%,#3E6BB0 60%,#A9C8F0 120%)}
+.fc{padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:14px;background:linear-gradient(180deg,#F7FBFF,#fff)}
+.fc-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px;flex-wrap:wrap}
+.fc-head b{font-family:var(--f-display);font-weight:900;font-size:1.5rem;text-transform:uppercase;color:var(--brand)}
+.fc-head small{font-family:var(--f-mono);font-size:.7rem;color:var(--muted)}
+.fc-days{display:grid;gap:6px}
+.fc-day{display:grid;grid-template-columns:62px 30px 1fr auto;gap:10px;align-items:center;padding:9px 12px;border-radius:14px;background:#fff;border:1px solid var(--line);font-size:.92rem}
+.fc-day .d{font-family:var(--f-display);font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--brand)}
+.fc-day .wi{font-size:1.25rem;text-align:center}
+.fc-day .t{color:var(--muted)}
+.fc-day .t b{color:var(--ink);font-weight:700}
+.fc-day .v{font-family:var(--f-display);font-weight:800;font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:999px}
+.v.good{background:rgba(18,179,134,.12);color:#0E8C69}
+.v.ok{background:rgba(255,176,32,.16);color:#9A5B00}
+.v.no{background:rgba(180,65,15,.1);color:#B4410F}
+.fc-note{font-size:.84rem;color:var(--muted);line-height:1.5}
+.fc-skel{height:42px;border-radius:14px;background:linear-gradient(90deg,var(--sky),#fff,var(--sky));background-size:200% 100%;animation:skel 1.2s linear infinite}
+@keyframes skel{to{background-position:-200% 0}}
+@media (max-width:900px){.season-card{grid-template-columns:1fr}.season-tabs{justify-self:stretch;justify-content:space-between}.season-tabs button{padding:9px 12px;font-size:.95rem}}
+@media (max-width:420px){.season-tabs .now-tag{display:none}}
+
+/* ---------- Meet Eddie ---------- */
+.about{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,64px);align-items:center}
+.polaroids{position:relative;min-height:520px}
+.pol{position:absolute;background:#fff;padding:10px 10px 44px;border-radius:10px;box-shadow:0 30px 60px -30px rgba(10,46,102,.55);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.pol img{display:block;width:100%;height:100%;object-fit:cover;border-radius:4px}
+.pol figcaption{position:absolute;left:0;right:0;bottom:10px;text-align:center;font-family:var(--f-script);font-size:1.25rem;color:var(--brand)}
+.pol.p1{width:min(300px,64%);aspect-ratio:419/600;left:4%;top:0;transform:rotate(-5deg);z-index:1}
+.pol.p1 img{height:calc(100% - 0px)}
+.pol.p2{width:min(250px,54%);right:2%;top:38%;transform:rotate(6deg);z-index:2;padding-bottom:44px}
+.pol.p2 .logo-tile{aspect-ratio:1;display:grid;place-items:center;background:radial-gradient(circle at 50% 40%,#fff,#E2F0FF);border-radius:4px}
+.pol.p2 .logo-tile img{width:82%;height:auto;border-radius:50%}
+.polaroids:hover .p1{transform:rotate(-8deg) translate(-10px,-6px)}
+.polaroids:hover .p2{transform:rotate(9deg) translate(10px,6px)}
+.tape{position:absolute;top:-12px;left:50%;width:90px;height:26px;transform:translateX(-50%) rotate(-3deg);background:rgba(191,224,255,.75);border-radius:3px;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.about-copy{display:grid;gap:22px}
+.about-copy h2{font-size:clamp(2.8rem,6vw,5rem);font-weight:900;line-height:.88}
+.about-copy h2 .script{display:inline-block;transform:rotate(-3deg)}
+.about-copy > p{color:var(--muted);font-size:1.12rem;max-width:52ch}
+.values{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.value{background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;display:grid;gap:6px;box-shadow:0 10px 30px -24px rgba(10,46,102,.4);transition:transform .3s,box-shadow .3s}
+.value:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.value b{font-family:var(--f-display);font-weight:900;font-size:1.45rem;text-transform:uppercase;color:var(--brand);display:flex;align-items:center;gap:10px}
+.value b i{width:30px;height:30px;border-radius:10px;background:var(--grad);display:grid;place-items:center;color:#fff;font-style:normal}
+.value span{color:var(--muted);font-size:.95rem}
+.sign{font-family:var(--f-script);font-size:2rem;color:var(--royal);line-height:1}
+@media (max-width:900px){.about{grid-template-columns:1fr}.polaroids{min-height:440px;max-width:460px;width:100%;margin-inline:auto}}
+@media (max-width:520px){.values{grid-template-columns:1fr}.polaroids{min-height:380px}}
+
+/* ---------- FAQ ---------- */
+.faq{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(24px,4vw,64px);align-items:start}
+.faq-side{position:sticky;top:110px;display:grid;gap:18px}
+.faq-side h2{font-size:clamp(2.8rem,6vw,5rem);font-weight:900;line-height:.88}
+.faq-side h2 .script{display:inline-block;transform:rotate(-3deg)}
+.faq-side p{color:var(--muted);font-size:1.08rem}
+.ask{background:var(--brand);color:#fff;border-radius:26px;padding:22px;display:grid;gap:12px;box-shadow:var(--shadow-lg)}
+.ask b{font-family:var(--f-display);font-weight:900;font-size:1.6rem;text-transform:uppercase;line-height:1}
+.ask span{color:#C5D8F5;font-size:.95rem}
+.ask .cta-row .btn{flex:1;font-size:1rem;padding:12px 14px}
+.qa{display:grid;gap:10px}
+.qa details{background:#fff;border:1px solid var(--line);border-radius:22px;overflow:hidden;transition:box-shadow .3s,border-color .3s}
+.qa details[open]{box-shadow:var(--shadow-md);border-color:rgba(22,115,214,.3)}
+.qa summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 22px;font-family:var(--f-display);font-weight:800;font-size:1.3rem;letter-spacing:.01em;text-transform:uppercase;color:var(--brand);line-height:1.05}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary i{width:34px;height:34px;border-radius:50%;background:var(--sky);flex-shrink:0;position:relative;transition:background .3s,transform .4s cubic-bezier(.2,.8,.2,1)}
+.qa summary i::before,.qa summary i::after{content:"";position:absolute;left:50%;top:50%;width:12px;height:2.4px;border-radius:2px;background:var(--royal);transform:translate(-50%,-50%);transition:transform .3s,background .3s}
+.qa summary i::after{transform:translate(-50%,-50%) rotate(90deg)}
+.qa details[open] summary i{background:var(--grad);transform:rotate(180deg)}
+.qa details[open] summary i::before,.qa details[open] summary i::after{background:#fff}
+.qa details[open] summary i::after{transform:translate(-50%,-50%) rotate(0)}
+.qa .ans{padding:0 22px 22px;color:var(--muted);font-size:1.02rem;max-width:62ch}
+.qa details::details-content{block-size:0;overflow:hidden;transition:block-size .4s cubic-bezier(.2,.8,.2,1),content-visibility .4s allow-discrete}
+.qa details[open]::details-content{block-size:auto}
+@supports (interpolate-size: allow-keywords){:root{interpolate-size:allow-keywords}}
+.draft{font-family:var(--f-mono);font-size:.7rem;color:var(--muted);letter-spacing:.04em}
+@media (max-width:900px){.faq{grid-template-columns:1fr}.faq-side{position:static}}
+
+/* ---------- SMS hand-off ---------- */
+.sms-card{display:grid;gap:10px;background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px;max-width:560px;box-shadow:var(--shadow-md)}
+.sms-card pre{margin:0;white-space:pre-wrap;font-family:var(--f-mono);font-size:.8rem;line-height:1.55;color:var(--ink);background:var(--bg);border-radius:14px;padding:14px;max-height:220px;overflow:auto}
+.ticket .btn-text{margin-top:8px;width:100%;background:var(--bg);color:var(--brand);border:1px solid var(--line)}
+
 @supports (animation-timeline: view()){
   @media (prefers-reduced-motion: no-preference){
     .reveal{animation:rise linear both;animation-timeline:view();animation-range:entry 0% entry 55%}
@@ -529,9 +675,6 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
 @media (prefers-reduced-motion: reduce){*{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}.brush path{stroke-dashoffset:0}.track,.rv-track{animation:none}}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.45s}
 </style>
-</head>
-<body>
-
 
 <div class="progress" aria-hidden="true"></div>
 
@@ -544,9 +687,10 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
       </a>
       <nav class="nav-links" aria-label="Sections">
         <a href="#services">Services</a>
-        <a href="#process">How it works</a>
         <a href="#estimate">Pricing</a>
+        <a href="#seasons">Seasons</a>
         <a href="#area">Service area</a>
+        <a href="#faq">FAQ</a>
       </nav>
       <div class="nav-right">
         <div class="mode" role="group" aria-label="Property type">
@@ -555,8 +699,19 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
           <button type="button" data-set-mode="com" aria-pressed="false">Business</button>
         </div>
         <button class="btn btn-grad" type="button" data-open-schedule>Book now</button>
+        <button class="burger" type="button" id="burger" aria-expanded="false" aria-controls="menu" aria-label="Menu"><i></i></button>
       </div>
     </div>
+    <nav class="menu" id="menu" aria-label="Menu" hidden>
+      <a href="#services">Services <span>→</span></a>
+      <a href="#process">How it works <span>→</span></a>
+      <a href="#estimate">Instant price <span>→</span></a>
+      <a href="#seasons">Seasons &amp; forecast <span>→</span></a>
+      <a href="#about">Meet Eddie <span>→</span></a>
+      <a href="#area">Service area <span>→</span></a>
+      <a href="#faq">FAQ <span>→</span></a>
+      <div class="menu-cta"><a class="btn btn-white" href="tel:+18103160788">Call</a><a class="btn btn-grad" href="sms:+18103160788">Text Eddie</a></div>
+    </nav>
   </div>
 </header>
 
@@ -567,11 +722,14 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
     <canvas id="bubbles" aria-hidden="true"></canvas>
     <div class="wrap hero-grid">
       <div>
-        <button class="now" type="button" data-open-schedule style="border:1px solid var(--glass-line);cursor:pointer">
-          <span class="live" aria-hidden="true"></span>
-          <span>Booking now · next opening <b id="nextOpen">soon</b></span>
-          <span aria-hidden="true">→</span>
-        </button>
+        <div class="hero-chips">
+          <button class="now" type="button" data-open-schedule style="border:1px solid var(--glass-line);cursor:pointer">
+            <span class="live" aria-hidden="true"></span>
+            <span>Booking now · next opening <b id="nextOpen">soon</b></span>
+            <span aria-hidden="true">→</span>
+          </button>
+          <a class="wx" id="wxChip" href="#seasons" hidden style="text-decoration:none"></a>
+        </div>
         <h1>
           <span class="shine">Cleaner.</span>
           <span class="shine d2">Brighter.</span>
@@ -585,10 +743,10 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
             <button class="btn btn-grad magnetic" type="button" data-open-schedule>Book online <span class="arrow" aria-hidden="true">→</span></button>
             <a class="btn btn-white magnetic" href="#estimate">Instant price</a>
           </div>
-          <span class="call">
+          <a class="call" href="tel:+18103160788">
             <i><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg></i>
             <span><small>Call or text today</small><b>810-316-0788</b></span>
-          </span>
+          </a>
           <div class="trio">
             <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7.2l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Free quotes</span>
             <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7.2l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Fast</span>
@@ -879,14 +1037,39 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
             <span class="annual num" id="tAnnual"></span>
           </div>
           <button class="btn btn-grad" type="button" data-open-schedule>Book this wash <span class="arrow" aria-hidden="true">→</span></button>
+          <a class="btn btn-text" id="textEst" href="sms:+18103160788">Text this estimate to Eddie</a>
           <p class="fine">Range is ±8% of sample rate-card pricing for this mockup. Eddie confirms every price with a free quote before any work starts.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- SEASONS + LIVE FORECAST -->
+  <section class="block" id="seasons">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <div>
+          <span class="eyebrow"><i></i>Michigan exterior calendar</span>
+          <h2>Right job, <span class="script grad-text">right season.</span></h2>
+        </div>
+        <p>Michigan weather decides what to clean and when. Here’s what makes sense right now, plus a live wash-day forecast for Brighton.</p>
+      </div>
+      <div class="seasons">
+        <div class="season-tabs" role="tablist" aria-label="Season" id="seasonTabs"><span class="season-pill" aria-hidden="true"></span></div>
+        <div class="season-card reveal">
+          <div class="season-art" id="seasonArt" role="tabpanel" aria-live="polite"></div>
+          <div class="fc">
+            <div class="fc-head"><b>Wash-day forecast</b><small id="fcSrc">Brighton, MI · live</small></div>
+            <div class="fc-days" id="fcDays"><div class="fc-skel"></div><div class="fc-skel"></div><div class="fc-skel"></div><div class="fc-skel"></div><div class="fc-skel"></div></div>
+            <p class="fc-note">Soft wash works best above 40°F with no heavy rain. Light rain is usually fine. Eddie reschedules by text if a storm rolls in.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- REVIEWS -->
-  <section class="block" id="reviews">
+  <section class="block" id="reviews" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head reveal">
         <div>
@@ -898,6 +1081,28 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
     </div>
     <div class="rv-wall" id="rvWall"></div>
     <p class="rv-note">Sample reviews shown for this mockup.</p>
+  </section>
+
+  <!-- MEET EDDIE -->
+  <section class="block" id="about" style="padding-top:0">
+    <div class="wrap about">
+      <div class="polaroids reveal" aria-hidden="true">
+        <figure class="pol p1" style="margin:0"><span class="tape"></span><img src="onjob.jpg" alt="" loading="lazy"><figcaption>On the lift</figcaption></figure>
+        <figure class="pol p2" style="margin:0"><span class="tape"></span><div class="logo-tile"><img src="logo.webp" alt="" loading="lazy"></div><figcaption>Brighton, MI</figcaption></figure>
+      </div>
+      <div class="about-copy reveal">
+        <span class="eyebrow"><i></i>Meet Eddie</span>
+        <h2>Local crew. <span class="script grad-text">Your neighbor.</span></h2>
+        <p>Eddie’s Exterior Services is Brighton-based and run by Eddie Evans. You talk to Eddie, not a call center. He sets the price, shows up when he says he will, and treats your home like it’s on his own street.</p>
+        <div class="values">
+          <div class="value"><b><i><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg></i>Free quotes</b><span>Text a few photos and get a firm price, usually the same day.</span></div>
+          <div class="value"><b><i><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 1.5L3.5 9H8l-1 5.5L12.5 7H8z"/></svg></i>Fast</b><span>Most homes are done in an afternoon, with a text when he arrives and when he’s done.</span></div>
+          <div class="value"><b><i><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 4.5V8l2.5 1.5"/></svg></i>Reliable</b><span>On time, clear windows, and he reschedules by text if the weather turns.</span></div>
+          <div class="value"><b><i><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13.5S2 10 2 5.8A3 3 0 0 1 8 4.5a3 3 0 0 1 6 1.3C14 10 8 13.5 8 13.5z"/></svg></i>Local</b><span>Support local and keep Brighton beautiful. Your money stays in town.</span></div>
+        </div>
+        <span class="sign">— Eddie</span>
+      </div>
+    </div>
   </section>
 
   <!-- AREA -->
@@ -965,6 +1170,23 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="block" id="faq" style="padding-top:0">
+    <div class="wrap faq">
+      <div class="faq-side reveal">
+        <span class="eyebrow"><i></i>Questions</span>
+        <h2>Good to <span class="script grad-text">know.</span></h2>
+        <p>The things people ask Eddie most before their first wash.</p>
+        <div class="ask">
+          <b>Still wondering?</b>
+          <span>Text Eddie a photo and your question. He answers fast.</span>
+          <div class="cta-row"><a class="btn btn-white" href="sms:+18103160788">Text Eddie</a><a class="btn btn-grad" href="tel:+18103160788">Call</a></div>
+        </div>
+      </div>
+      <div class="qa reveal" id="qa"></div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section style="padding-bottom:clamp(40px,6vw,80px)">
     <div class="wrap">
@@ -974,7 +1196,7 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
         <p>Book online in under a minute, or call or text Eddie directly. Quotes are always free.</p>
         <div class="cta-row">
           <button class="btn btn-white magnetic" type="button" data-open-schedule>Book online <span class="arrow" aria-hidden="true">→</span></button>
-          <span class="ph">810-316-0788</span>
+          <a class="ph" href="tel:+18103160788" style="text-decoration:none">810-316-0788</a>
         </div>
       </div>
     </div>
@@ -990,7 +1212,8 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
       </div>
       <div class="foot-cols">
         <div><b>Services</b><span>House washing</span><span>Roof &amp; gutter cleaning</span><span>Deck &amp; patio cleaning</span><span>Driveway &amp; walkway cleaning</span></div>
-        <div><b>Book</b><button type="button" data-open-schedule>Schedule online</button><span style="user-select:all;font-weight:700;color:var(--brand)">810-316-0788</span><span>Call or text</span></div>
+        <div><b>Book</b><button type="button" data-open-schedule>Schedule online</button><a href="tel:+18103160788" style="font-weight:700;color:var(--brand);text-decoration:none">810-316-0788</a><a href="sms:+18103160788" style="text-decoration:none">Text Eddie</a></div>
+        <div><b>Explore</b><a href="#seasons" style="text-decoration:none">Seasonal guide</a><a href="#about" style="text-decoration:none">Meet Eddie</a><a href="#faq" style="text-decoration:none">FAQ</a><a href="#area" style="text-decoration:none">Service area</a></div>
       </div>
     </div>
     <p class="local"><span>♥</span> Support local. Keep Brighton beautiful.</p>
@@ -1029,6 +1252,12 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
     </div>
   </div>
 </div>
+
+<nav class="dock" id="dock" aria-label="Quick contact">
+  <a href="tel:+18103160788"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg>Call</a>
+  <a href="sms:+18103160788"><svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1H9l-5 4V5a1 1 0 0 1 1-1z" fill="currentColor"/></svg>Text</a>
+  <button class="go" type="button" data-open-schedule>Book online →</button>
+</nav>
 
 <div class="toast" id="toast" role="status"></div>
 
@@ -1213,7 +1442,17 @@ function updateEstimate(){
   $('#stamp').textContent = mode === 'res' ? 'BUNDLE −10%' : 'MULTI −5%';
   $$('input[type="range"]').forEach(paintRange);
   syncAddButtons();
+  const svcNames = lines.filter(l => l[1]).map(l => l[0]);
+  $('#textEst').href = smsHref(svcNames.length ? [
+    'Hi Eddie! I used the estimator on your website.',
+    `Property: ${mode === 'res' ? 'Home' : 'Business'}, ${pm.size}`,
+    `Services: ${svcNames.join(', ')}`,
+    `Schedule: ${visits}`,
+    `Estimate: ${money(r5(total*.92))} – ${money(r5(total*1.08))}`,
+    'Could you send me a firm quote?'
+  ].join('\n') : 'Hi Eddie! I’d like a free quote.');
 }
+function smsHref(body){ return 'sms:+18103160788?&body=' + encodeURIComponent(body); }
 $$('.controls input').forEach(i => i.addEventListener('input', updateEstimate));
 
 /* ---------- Surfaces ---------- */
@@ -1707,10 +1946,11 @@ function render(){
   if (S.done){
     h = `<div class="sstep success">
       <div class="check"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 25l8 8 16-18" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <h2>You’re <span class="script grad-text">booked!</span></h2>
-      <p class="sub">Thanks, ${esc(S.name.split(' ')[0] || 'neighbor')}. Eddie will text <b>${esc(S.phone)}</b> to confirm ${S.date.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})}, ${S.time} in ${esc(S.town)}.</p>
-      <p class="sub" style="font-size:.9rem">Mockup note: on the live site this request goes straight into Eddie’s calendar and phone.</p>
-      <div class="sched-nav"><button class="btn btn-grad" type="button" id="doneClose">Back to the site</button><button class="btn btn-white" type="button" id="doneNew">Book another</button></div>
+      <h2>One tap to <span class="script grad-text">send.</span></h2>
+      <p class="sub">Thanks, ${esc(S.name.split(' ')[0] || 'neighbor')}! Your request is ready. Tap send and it goes straight to Eddie’s phone as a text. He’ll reply to <b>${esc(S.phone)}</b> to confirm ${S.date.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})}, ${S.time}.</p>
+      <div class="sms-card"><pre>${esc(bookingText())}</pre></div>
+      <div class="sched-nav"><a class="btn btn-grad" href="${smsHref(bookingText())}" id="doneSend">Send to Eddie <span class="arrow" aria-hidden="true">→</span></a><button class="btn btn-white" type="button" id="doneCopy">Copy</button><button class="btn btn-white" type="button" id="doneClose">Back to the site</button></div>
+      <p class="sub" style="font-size:.9rem">On a computer? Copy it and text it to 810-316-0788, or just call.</p>
     </div>`;
   } else if (S.step === 1){
     h = `<div class="sstep"><span class="eyebrow"><i></i>Step 1 of 5</span><h2>Where’s the <span class="script grad-text">job?</span></h2><p class="sub">Pick your town. Not listed? Enter your ZIP below.</p>
@@ -1728,14 +1968,15 @@ function render(){
     let cells = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].map(d => `<span class="dow">${d}</span>`).join('') + '<span></span>'.repeat(first.getDay());
     for (let i = 1; i <= days; i++){
       const d = new Date(vm.getFullYear(), vm.getMonth(), i), n = slotsFor(d), past = d < today, sel = S.date && +S.date === +d;
-      const full = !past && d.getDay() !== 0 && d - today >= 2*DAY && n === 0;
-      cells += `<button type="button" class="day${full ? ' full' : ''}" data-d="${+d}" ${n && !past ? '' : 'disabled'} aria-pressed="${!!sel}" aria-label="${d.toDateString()}${n ? `, ${n} openings` : ', unavailable'}">${i}${n && !past ? `<span class="av">${'<i></i>'.repeat(n)}</span>` : ''}</button>`;
+      const full = !past && d.getDay() !== 0 && d - today >= 2*DAY && n === 0, w = WX[dkey(d)];
+      const wtag = w && n && !past ? `<span class="dw" title="${w.hi}° · ${w.rain}% rain">${wxIcon(w.code)}</span>` : '';
+      cells += `<button type="button" class="day${full ? ' full' : ''}" data-d="${+d}" ${n && !past ? '' : 'disabled'} aria-pressed="${!!sel}" aria-label="${d.toDateString()}${n ? `, ${n} openings` : ', unavailable'}${w ? `, forecast ${w.hi} degrees, ${w.rain}% rain` : ''}">${wtag}${i}${n && !past ? `<span class="av">${'<i></i>'.repeat(n)}</span>` : ''}</button>`;
     }
     const no = nextOpen();
     h = `<div class="sstep"><span class="eyebrow"><i></i>Step 3 of 5</span><h2>Pick a <span class="script grad-text">day.</span></h2><p class="sub">Green dots show open arrival windows. Sundays are family days.</p>
       <div class="quick"><button type="button" id="qNext">Next available: ${fmtDay(no)}</button></div>
       <div class="cal"><div class="cal-head"><button type="button" id="mPrev" aria-label="Previous month" ${+vm <= +minM ? 'disabled' : ''}>←</button><b>${vm.toLocaleDateString('en-US',{month:'long',year:'numeric'})}</b><button type="button" id="mNext" aria-label="Next month" ${+vm >= +maxM ? 'disabled' : ''}>→</button></div>
-      <div class="cal-grid">${cells}</div><div class="cal-legend"><span><i></i>Open arrival window</span><span><s>12</s> Fully booked</span></div></div>
+      <div class="cal-grid">${cells}</div><div class="cal-legend"><span><i></i>Open arrival window</span><span><s>12</s> Fully booked</span>${Object.keys(WX).length ? '<span>☀️ Live forecast</span>' : ''}</div></div>
       ${nav(true)}</div>`;
   } else if (S.step === 4){
     h = `<div class="sstep"><span class="eyebrow"><i></i>Step 4 of 5</span><h2>Pick an <span class="script grad-text">arrival time.</span></h2><p class="sub">${S.date.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})}. You don’t need to be home.</p>
@@ -1750,10 +1991,24 @@ function render(){
         <label class="full">Anything Eddie should know?<textarea class="field" id="fNotes" rows="3" placeholder="Gate code, dog in the yard, the green spot on the north side…">${esc(S.notes)}</textarea></label>
         <label class="toggle full"><input type="checkbox" id="fTexts" ${S.texts ? 'checked' : ''}> Text me when Eddie is on the way</label>
       </div>
-      ${nav(true, 'Confirm booking')}</div>`;
+      ${nav(true, 'Review &amp; send')}</div>`;
   }
   main.innerHTML = h; summary();
   $('#schedScroll').scrollTop = 0;
+}
+function bookingText(){
+  const svc = SERVICES[mode].filter(s => S.svc.has(s.k)).map(s => s.t), r = rangeFor(mode, [...S.svc]);
+  return [
+    'Hi Eddie! Booking request from your website:',
+    `Name: ${S.name}`,
+    `Phone: ${S.phone}`,
+    `Area: ${S.town}${S.addr ? ` · ${S.addr}` : ''}`,
+    `${mode === 'res' ? 'Home' : 'Business'}: ${svc.join(', ')}`,
+    `Day: ${S.date.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}, ${S.time}`,
+    r ? `Website estimate: ${money(r[0])} – ${money(r[1])}` : '',
+    S.notes.trim() ? `Notes: ${S.notes.trim()}` : '',
+    S.texts ? 'Please text me when you’re on the way.' : ''
+  ].filter(Boolean).join('\n');
 }
 const esc = s => String(s || '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 function err(msg){ const e = $('#schedErr'); if (e) e.textContent = msg; }
@@ -1786,6 +2041,7 @@ main.addEventListener('click', e => {
     S.step++; render(); return;
   }
   if (t.id === 'doneClose'){ closeSchedule(); return; }
+  if (t.id === 'doneCopy'){ (navigator.clipboard ? navigator.clipboard.writeText(bookingText()) : Promise.reject()).then(() => toast('Copied. Text it to 810-316-0788.'), () => toast('Couldn’t copy. Text Eddie at 810-316-0788.')); return; }
   if (t.id === 'doneNew'){ Object.assign(S, {step:1, town:null, date:null, time:null, done:false, notes:''}); render(); }
 });
 function confetti(){
@@ -1799,6 +2055,123 @@ function confetti(){
       x.fillStyle = g; x.beginPath(); x.arc(p.x,p.y,p.r,0,7); x.fill(); }
     if (alive) requestAnimationFrame(f); else c.remove(); })();
 }
+
+/* ---------- Mobile menu + section highlight ---------- */
+(() => {
+  const burger = $('#burger'), menu = $('#menu');
+  const set = open => { burger.setAttribute('aria-expanded', open); menu.hidden = !open; };
+  burger.addEventListener('click', () => set(menu.hidden));
+  menu.addEventListener('click', e => { if (e.target.closest('a')) set(false); });
+  document.addEventListener('click', e => { if (!menu.hidden && !e.target.closest('.nav')) set(false); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !menu.hidden){ set(false); burger.focus(); } });
+  const links = $$('.nav-links a'), byId = Object.fromEntries(links.map(a => [a.hash.slice(1), a]));
+  const io = new IntersectionObserver(es => es.forEach(en => {
+    if (!en.isIntersecting) return;
+    links.forEach(a => a.classList.toggle('on', a === byId[en.target.id]));
+  }), {rootMargin: '-45% 0px -50% 0px'});
+  $$('main section[id]').forEach(s => io.observe(s));
+})();
+
+/* ---------- Live weather (Open-Meteo, Brighton MI) ---------- */
+const WX = {};   // 'YYYY-MM-DD' -> {code, hi, lo, rain}
+const dkey = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+function wxIcon(c){ return c === 0 ? '☀️' : c <= 2 ? '🌤️' : c === 3 ? '☁️' : c <= 48 ? '🌫️' : c <= 57 ? '🌦️' : c <= 67 ? '🌧️' : c <= 77 ? '🌨️' : c <= 82 ? '🌦️' : c <= 86 ? '🌨️' : '⛈️'; }
+function wxVerdict(w){
+  if ((w.code >= 71 && w.code <= 77) || w.code === 85 || w.code === 86 || w.hi < 36) return ['no', 'Too cold'];
+  if (w.code >= 95 || w.rain >= 70) return ['no', 'Rain out'];
+  if (w.rain >= 40 || w.hi < 45) return ['ok', 'Maybe'];
+  return ['good', 'Wash day'];
+}
+function paintForecast(){
+  const days = Object.keys(WX).sort().slice(0, 7);
+  $('#fcDays').innerHTML = days.map((k, i) => {
+    const w = WX[k], d = new Date(k + 'T12:00'), [cls, label] = wxVerdict(w);
+    const name = i === 0 ? 'Today' : i === 1 ? 'Tmrw' : d.toLocaleDateString('en-US', {weekday: 'short'});
+    return `<div class="fc-day"><span class="d">${name}</span><span class="wi" aria-hidden="true">${wxIcon(w.code)}</span><span class="t"><b>${w.hi}°</b> / ${w.lo}° · ${w.rain}% rain</span><span class="v ${cls}">${label}</span></div>`;
+  }).join('');
+}
+fetch('https://api.open-meteo.com/v1/forecast?latitude=42.5295&longitude=-83.7802&current=temperature_2m,weather_code&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_probability_max&temperature_unit=fahrenheit&timezone=America%2FDetroit&forecast_days=16')
+  .then(r => r.ok ? r.json() : Promise.reject(r.status))
+  .then(j => {
+    const d = j.daily;
+    d.time.forEach((k, i) => { WX[k] = {code: d.weather_code[i], hi: Math.round(d.temperature_2m_max[i]), lo: Math.round(d.temperature_2m_min[i]), rain: d.precipitation_probability_max[i] ?? 0}; });
+    paintForecast();
+    const now = j.current, today_ = WX[dkey(today)], v = today_ ? wxVerdict(today_) : ['good', ''];
+    const chip = $('#wxChip');
+    chip.innerHTML = `<span class="wi" aria-hidden="true">${wxIcon(now.weather_code)}</span><span>Brighton now <b>${Math.round(now.temperature_2m)}°</b></span><span class="${v[0] === 'good' ? 'ok' : 'meh'}">· ${v[0] === 'good' ? 'Good wash day' : v[0] === 'ok' ? 'Iffy wash day' : 'Not a wash day'}</span>`;
+    chip.hidden = false;
+    if (!sched.hidden && S.step === 3) render();
+  })
+  .catch(() => {
+    $('#fcDays').innerHTML = '<div class="fc-day" style="grid-template-columns:1fr"><span class="t">The live forecast shows here on the real site.</span></div>';
+    $('#fcSrc').textContent = 'Brighton, MI';
+  });
+
+/* ---------- Seasons ---------- */
+(() => {
+  const SEASONS = [
+    {k:'spring', n:'Spring', when:'March – May', h:'Spring <span class="script">refresh.</span>',
+      p:'Winter leaves salt, grime and green algae behind. Spring is the busiest wash season, so book early.',
+      todo:[['house','House wash','Pollen, road salt and winter algae off the siding.'],['roof','Roof treatment','Stop black streaks while they’re still spreading.'],['deck','Deck cleaning','Clean it now, stain it once it warms up.']],
+      res:['house','roof','deck'], com:['facade','concrete','patio'], cta:'Book a spring wash'},
+    {k:'summer', n:'Summer', when:'June – August', h:'Summer <span class="script">shine.</span>',
+      p:'Long dry days are perfect for concrete, patios and decks. Get it sharp before grad parties and the Fourth.',
+      todo:[['patio','Patios & pavers','Moss out of the joints, color back in the stone.'],['drive','Driveways','Even, stripe-free concrete for summer.'],['deck','Deck prep','Brightened and dry, ready to stain.']],
+      res:['patio','drive','deck'], com:['patio','concrete','dumpster'], cta:'Book a summer clean'},
+    {k:'fall', n:'Fall', when:'September – November', h:'Fall <span class="script">prep.</span>',
+      p:'Leaves fill the gutters, and the last warm days are your chance to wash before the freeze locks grime in until spring.',
+      todo:[['gutter','Gutter clean-out','After the leaves drop, before the first freeze.'],['house','Last house wash','Before temperatures stay under 40°F.'],['drive','Driveway reset','Clean concrete before road salt season.']],
+      res:['gutters','house','drive'], com:['gutters','facade','concrete'], cta:'Book before the freeze'},
+    {k:'winter', n:'Winter', when:'December – February', h:'Winter <span class="script">planning.</span>',
+      p:'Washing pauses below freezing. Use the downtime to get on Eddie’s spring list before it fills up.',
+      todo:[['house','Spring list','Reserve an early spring wash date now.'],['gutter','Mild-day gutters','Clear them on a warm spell to help prevent ice dams.'],['store','Business plans','Set a twice-a-year or quarterly schedule.']],
+      res:['house','gutters'], com:['facade','gutters'], cta:'Reserve a spring date'}
+  ];
+  const m = today.getMonth(), cur = m >= 2 && m <= 4 ? 0 : m >= 5 && m <= 7 ? 1 : m >= 8 && m <= 10 ? 2 : 3;
+  const tabs = $('#seasonTabs'), art = $('#seasonArt'), pill = tabs.querySelector('.season-pill');
+  tabs.insertAdjacentHTML('beforeend', SEASONS.map((s, i) =>
+    `<button type="button" role="tab" id="tab-${s.k}" aria-controls="seasonArt" aria-selected="${i === cur}" data-i="${i}">${s.n}${i === cur ? '<span class="now-tag">NOW</span>' : ''}</button>`).join(''));
+  let sel = cur;
+  function movePill(){ const b = tabs.querySelector(`[data-i="${sel}"]`); pill.style.left = b.offsetLeft + 'px'; pill.style.width = b.offsetWidth + 'px'; }
+  function show(i){
+    sel = i; const s = SEASONS[i];
+    tabs.querySelectorAll('[role="tab"]').forEach(b => b.setAttribute('aria-selected', +b.dataset.i === i));
+    art.className = 'season-art s-' + s.k; art.setAttribute('aria-labelledby', 'tab-' + s.k);
+    art.innerHTML = `<span class="big" aria-hidden="true">${s.n}</span><span class="when">${s.when}${i === cur ? ' · this is now' : ''}</span><h3>${s.h}</h3><p>${s.p}</p>
+      <ul class="todo">${s.todo.map(t => `<li><span class="ti" aria-hidden="true">${I[t[0]]}</span><span><b>${t[1]}</b><span>${t[2]}</span></span></li>`).join('')}</ul>
+      <div class="cta-row"><button class="btn btn-white" type="button" id="seasonBook">${s.cta} <span class="arrow" aria-hidden="true">→</span></button></div>`;
+    movePill();
+  }
+  tabs.addEventListener('click', e => { const b = e.target.closest('[role="tab"]'); if (b) show(+b.dataset.i); });
+  tabs.addEventListener('keydown', e => {
+    if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+    const n = (sel + (e.key === 'ArrowRight' ? 1 : 3)) % 4; show(n); tabs.querySelector(`[data-i="${n}"]`).focus();
+  });
+  art.addEventListener('click', e => {
+    if (!e.target.closest('#seasonBook')) return;
+    const keys = SEASONS[sel][mode], box = mode === 'res' ? 'resChecks' : 'comChecks';
+    $$(`#${box} input`).forEach(i => i.checked = keys.includes(i.dataset.k));
+    updateEstimate(); openSchedule();
+  });
+  new ResizeObserver(movePill).observe(tabs);
+  show(cur);
+})();
+
+/* ---------- FAQ ---------- */
+(() => {
+  const QA = [
+    ['Soft wash or pressure wash, what’s the difference?', 'Pressure washing uses high pressure to blast dirt off hard surfaces like concrete. Soft washing uses low pressure plus a cleaning solution that kills algae and mildew at the root. Siding and roofs get soft washed, and concrete gets pressure washed. Eddie matches the method to every surface.'],
+    ['Is it safe for my plants and pets?', 'Plants are pre-wet, covered where needed and rinsed again afterward. Keep pets inside during the wash and until surfaces are rinsed and dry.'],
+    ['Do I need to be home?', 'No. Eddie just needs access to the outside of the house, an outdoor spigot and unlocked gates. You get a text when he arrives and another when he’s done, with photos if you want them.'],
+    ['How often should I wash my house?', 'Most Michigan homes look best with a wash once a year. North-facing and shaded walls grow green algae faster, and homes near lakes and trees may need it more often.'],
+    ['What if it rains on wash day?', 'Light rain usually doesn’t matter, since everything gets rinsed anyway. If a storm or a freeze is coming, Eddie texts you to pick a new day.'],
+    ['Can you clean my roof without damaging it?', 'Yes. Roofs only get soft washed, with no pressure on the shingles and nobody walking on them unnecessarily. The black streaks are an algae, and the treatment keeps fading them for weeks after.'],
+    ['How do I get a price?', 'Use the instant estimate above for a ballpark, or text a few photos to 810-316-0788. Quotes are always free and Eddie confirms the price before any work starts.'],
+    ['Do you work on commercial buildings?', 'Yes. Storefronts, offices, restaurant patios and multi-story buildings, with boom-lift access for high walls. Work can be scheduled around your business hours.']
+  ];
+  $('#qa').innerHTML = QA.map((q, i) => `<details${i === 0 ? ' open' : ''}><summary>${q[0]}<i aria-hidden="true"></i></summary><div class="ans">${q[1]}</div></details>`).join('') +
+    '<p class="draft">Draft answers for Eddie to review before launch.</p>';
+})();
 
 /* ---------- Init ---------- */
 document.body.dataset.mode = mode;
