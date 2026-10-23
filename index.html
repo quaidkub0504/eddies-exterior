@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,600;0,700;0,800;0,900;1,800;1,900&family=Barlow:wght@400;500;600;700&family=Kaushan+Script&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-/* Layout: bright "fresh rinse" — sky-gradient mesh, liquid-glass panels, soap-bubble motion, brand navy/royal from the logo. Deliberately light-only. */
+/* Layout: bright "fresh rinse". sky-gradient mesh, liquid-glass panels, soap-bubble motion, brand navy/royal from the logo. Deliberately light-only. */
 :root{
   --bg:#F4F9FF;
   --white:#FFFFFF;
@@ -61,7 +61,7 @@ button{font:inherit;color:inherit}
 .script{font-family:var(--f-script);text-transform:none;font-weight:400;letter-spacing:0}
 .grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .14em .08em 0}
 .num{font-variant-numeric:tabular-nums}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-display);font-weight:700;font-size:.92rem;letter-spacing:.14em;text-transform:uppercase;color:var(--royal);background:var(--white);border:1px solid var(--line);padding:6px 14px 6px 8px;border-radius:999px;box-shadow:var(--shadow-md)}
+.eyebrow{justify-self:start;display:inline-flex;align-items:center;gap:8px;font-family:var(--f-display);font-weight:700;font-size:.92rem;letter-spacing:.14em;text-transform:uppercase;color:var(--royal);background:var(--white);border:1px solid var(--line);padding:6px 14px 6px 8px;border-radius:999px;box-shadow:var(--shadow-md)}
 .eyebrow i{width:20px;height:20px;border-radius:50%;background:var(--grad);display:grid;place-items:center}
 .eyebrow i::after{content:"";width:6px;height:6px;border-radius:50%;background:#fff}
 
@@ -120,33 +120,39 @@ body[data-mode="com"] .mode-pill{transform:translateX(100%)}
 .mesh .b4{width:260px;height:260px;right:22%;top:120px;background:#FFF1C2;opacity:.6;animation-delay:-3s}
 @keyframes drift{to{transform:translate(60px,40px) scale(1.12)}}
 #bubbles{position:absolute;inset:0;width:100%;height:100%;z-index:-1;pointer-events:none}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:clamp(28px,4vw,64px);align-items:center}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,80px);align-items:center;min-height:min(820px,calc(100dvh - 150px))}
 .now{display:inline-flex;align-items:center;gap:10px;text-decoration:none;background:var(--glass);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--glass-line);border-radius:999px;padding:7px 14px 7px 8px;font-size:.92rem;font-weight:600;color:var(--brand);box-shadow:var(--shadow-md);transition:transform .2s}
 .now:hover{transform:translateY(-2px)}
 .now .live{position:relative;width:22px;height:22px;border-radius:50%;background:rgba(18,179,134,.15);display:grid;place-items:center}
 .now .live::after{content:"";width:8px;height:8px;border-radius:50%;background:var(--mint);box-shadow:0 0 0 0 rgba(18,179,134,.6);animation:ping 1.8s infinite}
 @keyframes ping{70%{box-shadow:0 0 0 9px rgba(18,179,134,0)}100%{box-shadow:0 0 0 0 rgba(18,179,134,0)}}
 .now b{color:var(--royal)}
-.hero h1{margin-top:22px;font-weight:900;font-size:clamp(4rem,9.6vw,8.8rem);line-height:.83}
+.hero h1{margin-top:22px;font-weight:900;font-size:clamp(3.6rem,7.6vw,7.4rem);line-height:.86}
 .hero h1 > span{display:block}
 .shine{background:linear-gradient(100deg,var(--brand) 0 42%,#6FC4FF 50%,var(--brand) 58% 100%);background-size:260% 100%;background-position:100% 0;-webkit-background-clip:text;background-clip:text;color:transparent;animation:shine 7s ease-in-out infinite}
 .shine.d2{animation-delay:.35s}
 @keyframes shine{0%,55%{background-position:100% 0}85%,100%{background-position:0 0}}
-.hero h1 .script{font-size:1.04em;line-height:1.05;display:inline-block;transform:rotate(-5deg);transform-origin:0 60%;margin-top:.04em}
+.hero h1 .script{font-size:1.06em;line-height:1.12;display:inline-block;transform:rotate(-5deg);transform-origin:0 60%;padding-bottom:.08em}
 .brush{display:block;width:min(440px,80%);height:auto;margin-top:2px}
 .brush path{stroke-dasharray:1;stroke-dashoffset:1;animation:draw 1.1s .5s cubic-bezier(.6,0,.2,1) forwards}
 @keyframes draw{to{stroke-dashoffset:0}}
-.hero-copy{margin-top:24px;display:grid;gap:24px}
-.hero-copy p{font-size:1.18rem;color:var(--muted);max-width:46ch}
+.lede{margin-top:18px;font-size:clamp(1.12rem,1.4vw,1.3rem);color:var(--muted);max-width:38ch}
 .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
-.call{display:inline-flex;align-items:center;gap:12px;text-decoration:none}
-.call i{width:48px;height:48px;border-radius:50%;display:grid;place-items:center;background:var(--white);color:var(--royal);box-shadow:var(--shadow-md);flex-shrink:0}
-.call small{display:block;font-family:var(--f-display);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.76rem;color:var(--muted)}
-.call b{font-family:var(--f-display);font-weight:800;font-size:1.5rem;letter-spacing:.02em;user-select:all;color:var(--brand)}
-.trio{display:flex;flex-wrap:wrap;gap:8px}
-.trio span{font-family:var(--f-display);font-weight:700;font-size:.92rem;letter-spacing:.08em;text-transform:uppercase;padding:6px 13px;border-radius:999px;background:var(--glass);border:1px solid var(--glass-line);display:inline-flex;align-items:center;gap:7px;color:var(--brand)}
-.trio svg{color:var(--mint)}
+.hero .cta-row{margin-top:28px}
+.btn:active{transform:translateY(1px) scale(.98)}
 
+/* Hero collage: Eddie's real job photo, clean, with a one-time rinse sheen. */
+.collage{position:relative;width:100%;max-width:600px;aspect-ratio:1/1.06;justify-self:center}
+.shot{position:absolute;margin:0;overflow:hidden;background:#CFE3F7;border:7px solid #fff;box-shadow:0 40px 80px -36px rgba(10,46,102,.6);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.shot img{display:block;width:100%;height:100%;object-fit:cover}
+.shot.main{right:0;top:0;width:70%;height:100%;border-radius:36px;rotate:2deg}
+.collage::before{content:"";position:absolute;right:-5%;top:7%;width:72%;height:96%;border-radius:40px;background:linear-gradient(160deg,#0A2E66 0%,#1673D6 60%,#1EC0EC 120%);rotate:-5deg;box-shadow:0 40px 80px -40px rgba(10,46,102,.7)}
+.shot.main::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.6) 50%,transparent 62%);transform:translateX(-130%);animation:sheen 1.8s .7s cubic-bezier(.6,0,.2,1) forwards;pointer-events:none}
+@keyframes sheen{to{transform:translateX(130%)}}
+.shot.round{left:0;bottom:6%;width:44%;aspect-ratio:1;border-radius:50%;rotate:-4deg;z-index:2}
+.drip{position:absolute;left:30%;top:6%;width:90px;height:90px;border-radius:50%;z-index:3;background:radial-gradient(circle at 34% 30%,#fff 0 12%,rgba(255,255,255,.2) 38%,rgba(143,211,255,.35) 80%,rgba(255,255,255,.85) 100%);box-shadow:inset 0 0 0 1.5px rgba(255,255,255,.9),0 18px 40px -16px rgba(22,115,214,.5);animation:bob 6s ease-in-out infinite;pointer-events:none}
+.drip.d2{left:22%;top:auto;bottom:-2%;width:54px;height:54px;animation-delay:-2s}
+@keyframes bob{50%{translate:0 -10px}}
 .visual{position:relative;perspective:1200px}
 .frame{position:relative;padding:10px;border-radius:34px;background:linear-gradient(140deg,rgba(255,255,255,.9),rgba(255,255,255,.35));border:1px solid var(--glass-line);box-shadow:var(--shadow-lg);transform-style:preserve-3d;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .stage{position:relative;border-radius:26px;overflow:hidden;max-width:100%;background:#2b3442;isolation:isolate}
@@ -173,20 +179,8 @@ body[data-mode="com"] .mode-pill{transform:translateX(100%)}
 .done-toast strong{font-family:var(--f-display);font-weight:900;font-size:1.8rem;text-transform:uppercase;line-height:1;color:var(--brand)}
 .done-toast strong em{font-family:var(--f-script);font-style:normal;text-transform:none;font-weight:400}
 .done-toast span{font-size:.95rem;color:var(--muted)}
-.float{position:absolute;z-index:3;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:18px;background:rgba(255,255,255,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid #fff;box-shadow:var(--shadow-md);font-size:.86rem;font-weight:600;color:var(--brand);pointer-events:none;transition:transform .6s cubic-bezier(.2,.8,.2,1);animation:bob 5s ease-in-out infinite}
-.float b{display:block;font-family:var(--f-display);font-weight:800;font-size:1.1rem;letter-spacing:.02em;line-height:1}
-.float small{color:var(--muted);font-weight:500}
-.float .fi{width:36px;height:36px;border-radius:12px;display:grid;place-items:center;background:var(--grad);color:#fff;flex-shrink:0}
-.float.f1{left:-34px;top:16%}
-.float.f2{right:-26px;top:44%;animation-delay:-1.6s}
-.float.f3{left:-18px;bottom:12%;animation-delay:-3.2s}
-.float.f2 .fi{background:linear-gradient(120deg,#12B386,#4ADBB0)}
-.float.f3 .fi{background:linear-gradient(120deg,#FFB020,#FFD45C)}
-@keyframes bob{50%{translate:0 -8px}}
-.cap{margin-top:14px;font-size:.88rem;color:var(--muted);display:flex;gap:8px;align-items:center;justify-content:center}
-.cap::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--mint)}
-@media (max-width:980px){.hero-grid{grid-template-columns:1fr}.visual{max-width:560px;margin-inline:auto;width:100%}}
-@media (max-width:640px){.float.f1{left:-6px;top:auto;bottom:-22px}.float.f2,.float.f3{display:none}.meter{min-width:118px}.hint{font-size:.76rem;padding:7px 11px}}
+@media (max-width:980px){.hero-grid{grid-template-columns:1fr;min-height:0}.collage{max-width:460px}}
+@media (max-width:640px){.meter{min-width:118px}.hint{font-size:.76rem;padding:7px 11px}.drip{display:none}}
 
 /* ---------- Marquee ---------- */
 .marquee{position:relative;overflow:hidden;width:104%;margin-left:-2%;background:var(--grad);color:#fff;transform:rotate(-1.6deg);margin-block:-10px 10px;box-shadow:0 20px 50px -24px rgba(22,115,214,.7);z-index:2}
@@ -199,11 +193,13 @@ body[data-mode="com"] .mode-pill{transform:translateX(100%)}
 
 /* ---------- Sections ---------- */
 section.block{padding-block:clamp(72px,10vw,132px);position:relative}
-.sec-head{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:24px;align-items:end;margin-bottom:clamp(32px,4vw,52px)}
-.sec-head h2{font-size:clamp(2.8rem,6vw,5rem);font-weight:900;line-height:.88;margin-top:16px}
-.sec-head h2 .script{font-size:1.02em;display:inline-block;transform:rotate(-3deg)}
-.sec-head p{color:var(--muted);max-width:44ch;font-size:1.08rem}
-@media (max-width:820px){.sec-head{grid-template-columns:1fr}}
+.sec-head{display:grid;gap:16px;max-width:860px;margin-bottom:clamp(32px,4vw,52px)}
+.sec-head.center{margin-inline:auto;text-align:center;justify-items:center}
+.sec-head h2{font-size:clamp(2.8rem,6vw,5.2rem);font-weight:900;line-height:.9;padding-bottom:.04em}
+.sec-head p{color:var(--muted);max-width:58ch;font-size:1.12rem}
+/* Emphasis inside headlines: italic of the same family. The brush script is reserved for the brand lockup ("Better."). */
+h1 em,h2 em,h3 em{font-style:italic;color:var(--royal);padding-right:.06em}
+.ph{width:1.15em;height:1.15em;flex-shrink:0;vertical-align:-.18em}
 
 /* Services bento w/ tilt */
 .bento{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
@@ -229,47 +225,49 @@ section.block{padding-block:clamp(72px,10vw,132px);position:relative}
 .card.feature .ico{background:#fff;color:var(--royal)}
 .card.feature .price{color:#fff}
 .card.feature .add{background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.25)}
-.feature-art{flex:1;min-height:200px;display:grid;place-items:center;margin:4px -6px}
-.feature-art svg{width:100%;height:auto;max-height:320px;filter:drop-shadow(0 20px 30px rgba(0,0,0,.25))}
+.feature-art{flex:1;min-height:220px;margin:6px 0 0;border-radius:20px;overflow:hidden;position:relative}
+.feature-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.card.feature:hover .feature-art img{transform:scale(1.05)}
 @media (max-width:900px){.bento{grid-template-columns:1fr 1fr}.card.feature{grid-column:1/-1;grid-row:auto}}
 @media (max-width:600px){.bento{grid-template-columns:1fr}}
 
-/* Process scrollytelling */
-.story{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,4vw,64px)}
-.story-sticky{position:sticky;top:110px;align-self:start}
-.story-card{border-radius:32px;background:linear-gradient(170deg,#DDF0FF,#F4FAFF 70%);border:1px solid #fff;box-shadow:var(--shadow-lg);padding:20px;position:relative;overflow:hidden}
-.story-card svg{width:100%;height:auto;display:block}
-.story-card .stepnum{position:absolute;top:18px;left:22px;font-family:var(--f-display);font-weight:900;font-size:4.4rem;line-height:1;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.story-card .steplabel{position:absolute;top:30px;right:22px;font-family:var(--f-display);font-weight:800;letter-spacing:.1em;text-transform:uppercase;font-size:.9rem;color:var(--brand);background:#fff;padding:6px 12px;border-radius:999px;box-shadow:var(--shadow-md)}
-.dots{display:flex;gap:6px;justify-content:center;margin-top:14px}
-.dots i{width:28px;height:6px;border-radius:6px;background:var(--line);transition:background .3s,width .3s}
-.dots i.on{background:var(--royal);width:44px}
-.st{transition:opacity .6s}
-svg[data-step="1"] .s2,svg[data-step="1"] .s3,svg[data-step="1"] .s4{opacity:0}
-svg[data-step="2"] .s1,svg[data-step="2"] .s3,svg[data-step="2"] .s4{opacity:0}
-svg[data-step="3"] .s1,svg[data-step="3"] .s2,svg[data-step="3"] .s4{opacity:0}
-svg[data-step="4"] .s1,svg[data-step="4"] .s2,svg[data-step="4"] .s3{opacity:0}
-.spray-arc{stroke-dasharray:6 8;animation:flow .6s linear infinite}
-@keyframes flow{to{stroke-dashoffset:-14}}
-.twinkle{animation:tw 1.6s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-.twinkle:nth-child(2){animation-delay:.4s}.twinkle:nth-child(3){animation-delay:.8s}
-@keyframes tw{50%{transform:scale(.5);opacity:.4}}
-.steps{display:grid;gap:22px;padding-block:8vh 20vh}
-.step{min-height:46vh;display:grid;align-content:center;gap:12px;padding:30px;border-radius:28px;background:var(--white);border:1px solid var(--line);opacity:.45;transform:scale(.97);transition:opacity .5s,transform .5s,box-shadow .5s}
-.step.on{opacity:1;transform:none;box-shadow:var(--shadow-lg)}
-.step .n{font-family:var(--f-display);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.9rem;color:var(--royal)}
-.step h3{font-size:clamp(2rem,3.6vw,2.8rem);font-weight:900;line-height:.95}
-.step p{color:var(--muted);font-size:1.05rem;max-width:42ch}
+/* Process: pinned scroll story. Scrolling drives a rinse line across Eddie's real job photo. */
+.wash{position:relative;height:420vh}
+.wash-pin{position:sticky;top:0;height:100dvh;display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(24px,4vw,72px);align-items:center;overflow:hidden}
+.wash-steps{display:grid;gap:clamp(14px,2.2vh,26px);align-content:center}
+.wash-steps h2{font-size:clamp(2.6rem,5vw,4.6rem);font-weight:900;line-height:.9}
+.wstep{display:grid;grid-template-columns:44px 1fr;gap:4px 16px;align-items:start;opacity:.32;transition:opacity .45s,transform .45s cubic-bezier(.2,.8,.2,1);transform:translateX(-6px)}
+.wstep.on{opacity:1;transform:none}
+.wstep .wn{grid-row:span 2;width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--sky);color:var(--royal);font-family:var(--f-display);font-weight:900;font-size:1.3rem;transition:background .4s,color .4s}
+.wstep.on .wn,.wstep.past .wn{background:var(--grad);color:#fff}
+.wstep b{font-family:var(--f-display);font-weight:900;font-size:clamp(1.5rem,2.4vw,2.1rem);text-transform:uppercase;color:var(--brand);line-height:1}
+.wstep span{color:var(--muted);font-size:1.02rem;max-width:40ch}
+.wash-stage{position:relative;height:min(74dvh,780px);margin-bottom:40px;aspect-ratio:524/800;justify-self:center;max-width:100%}
+.wash-photo{position:absolute;inset:0;border-radius:36px;overflow:hidden;border:7px solid #fff;box-shadow:0 50px 90px -40px rgba(10,46,102,.65);background:#2b3442}
+.wash-photo img,.wash-photo canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.wash-photo canvas{clip-path:inset(0 0 0 calc(var(--w,0) * 100%))}
+.rinse{position:absolute;top:-4%;bottom:-4%;left:calc(var(--w,0) * 100%);width:10px;translate:-50% 0;border-radius:8px;background:linear-gradient(180deg,rgba(255,255,255,0),#BFF3FF 12%,#fff 50%,#BFF3FF 88%,rgba(255,255,255,0));box-shadow:0 0 24px 8px rgba(143,227,255,.75),0 0 70px 20px rgba(30,192,236,.35);opacity:0;transition:opacity .3s}
+.rinse::before{content:"";position:absolute;inset:0 -46px;background:repeating-linear-gradient(180deg,rgba(255,255,255,.0) 0 7px,rgba(225,247,255,.75) 7px 9px);-webkit-mask:linear-gradient(90deg,transparent,#000 40%,#000 60%,transparent);mask:linear-gradient(90deg,transparent,#000 40%,#000 60%,transparent);animation:mist .35s linear infinite;opacity:.8}
+@keyframes mist{to{background-position:0 16px}}
+.wash[data-step="3"] .rinse{opacity:1}
+.inset{position:absolute;left:-12%;bottom:8%;width:42%;aspect-ratio:1;border-radius:50%;overflow:hidden;border:7px solid #fff;box-shadow:var(--shadow-lg);opacity:0;transform:scale(.6) rotate(-8deg);transition:opacity .5s,transform .6s cubic-bezier(.2,.9,.2,1.3);z-index:2}
+.inset img{width:100%;height:100%;object-fit:cover;display:block}
+.wash[data-step="2"] .inset{opacity:1;transform:scale(1) rotate(-4deg)}
+.wash-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(105deg,transparent 38%,rgba(255,255,255,.65) 50%,transparent 62%);transform:translateX(-130%);pointer-events:none}
+.wash[data-done="1"] .wash-photo::after{transition:transform 1.4s cubic-bezier(.6,0,.2,1);transform:translateX(130%)}
+.ba{position:absolute;left:0;right:0;bottom:-40px;display:flex;align-items:center;gap:12px;font-family:var(--f-display);font-weight:800;font-size:.95rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.ba-bar{flex:1;height:4px;border-radius:4px;background:var(--sky);overflow:hidden}
+.ba-bar i{display:block;height:100%;background:var(--grad);transform-origin:0 50%;transform:scaleX(var(--w,0))}
+.wash[data-done="1"] .ba span:last-child{color:var(--royal)}
 @media (max-width:860px){
-  .story{grid-template-columns:1fr}
-  .story-sticky{top:80px;z-index:2}
-  .story-card{padding:12px;border-radius:24px}
-  .story-card .stepnum{font-size:3rem;top:10px;left:14px}
-  .story-card .steplabel{top:16px;right:14px;font-size:.78rem}
-  .step{min-height:auto;padding:24px}
-  .steps{padding-block:24px 30vh}
+  .wash-pin{grid-template-columns:1fr;grid-template-rows:auto 1fr;align-content:start;gap:14px;padding-top:86px}
+  .wash-steps{order:2;gap:10px}
+  .wash-steps h2{display:none}
+  .wstep{display:none;opacity:1;transform:none}
+  .wstep.on{display:grid}
+  .wash-stage{height:min(54dvh,520px)}
+  .inset{left:-6%;width:38%}
 }
-
 /* Surface lab */
 .washer{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:16px}
 .washer .frame{padding:8px;border-radius:30px}
@@ -352,14 +350,16 @@ input[type="range"]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;b
 @media (max-width:900px){.est{grid-template-columns:1fr}.ticket{position:relative;top:0;transform:none}}
 
 /* Reviews marquee */
-.rv-wall{display:grid;gap:16px;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.rv-row{overflow:hidden}
-.rv-track{display:flex;gap:16px;width:max-content;animation:slide 48s linear infinite}
-.rv-row.rev .rv-track{animation-direction:reverse;animation-duration:56s}
-.rv-wall:hover .rv-track{animation-play-state:paused}
+.rv-rail{display:grid;grid-auto-flow:column;grid-auto-columns:min(380px,82vw);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:max(16px,calc((100vw - var(--max)) / 2 + 32px));padding:8px max(16px,calc((100vw - var(--max)) / 2 + 32px)) 28px;scrollbar-width:none;overscroll-behavior-x:contain}
+.rv-rail::-webkit-scrollbar{display:none}
+.rv-rail .rv{scroll-snap-align:start;width:auto}
+.rv-head{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.rv-ctrl{display:flex;gap:8px}
+.rv-ctrl button{width:52px;height:52px;border-radius:50%;border:1px solid var(--line);background:#fff;color:var(--brand);cursor:pointer;display:grid;place-items:center;font-size:1.3rem;box-shadow:var(--shadow-md);transition:transform .2s,background .2s}
+.rv-ctrl button:hover{background:var(--grad);color:#fff;transform:translateY(-2px)}
 .rv{width:360px;flex-shrink:0;background:var(--white);border:1px solid var(--line);border-radius:24px;padding:22px;display:grid;gap:12px;box-shadow:0 10px 30px -24px rgba(10,46,102,.4)}
 .rv .top{display:flex;justify-content:space-between;align-items:center}
-.stars{color:var(--sun);letter-spacing:2px;font-size:1.05rem}
+.stars{color:var(--sun);display:flex;gap:2px;font-size:1.05rem}
 .sample{font-family:var(--f-mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:3px 7px;border-radius:5px;border:1px dashed var(--muted);color:var(--muted)}
 .rv q{quotes:none;font-size:1rem;line-height:1.5}
 .who{display:flex;align-items:center;gap:10px;font-size:.88rem;font-weight:650;color:var(--brand)}
@@ -519,6 +519,7 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
 @media (max-width:520px){.form-grid{grid-template-columns:1fr}.stepper{display:none}.sched-top .t{margin-right:auto}}
 
 .toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translate(-50%,160%);z-index:120;background:var(--brand);color:#fff;padding:12px 18px;border-radius:999px;font-size:.94rem;font-weight:600;box-shadow:0 18px 40px -16px rgba(0,0,0,.5);transition:transform .45s cubic-bezier(.2,.8,.2,1);max-width:calc(100% - 32px);text-align:center}
+.toast:not(.show){opacity:0;visibility:hidden;transition:transform .45s,opacity .3s,visibility 0s .45s}
 .toast.show{transform:translate(-50%,0)}
 
 /* ---------- Nav: active section + mobile menu ---------- */
@@ -722,65 +723,27 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
     <canvas id="bubbles" aria-hidden="true"></canvas>
     <div class="wrap hero-grid">
       <div>
-        <div class="hero-chips">
-          <button class="now" type="button" data-open-schedule style="border:1px solid var(--glass-line);cursor:pointer">
-            <span class="live" aria-hidden="true"></span>
-            <span>Booking now · next opening <b id="nextOpen">soon</b></span>
-            <span aria-hidden="true">→</span>
-          </button>
-          <a class="wx" id="wxChip" href="#seasons" hidden style="text-decoration:none"></a>
-        </div>
+        <button class="now" type="button" data-open-schedule style="border:1px solid var(--glass-line);cursor:pointer">
+          <span class="live" aria-hidden="true"></span>
+          <span>Booking now, next opening <b id="nextOpen">soon</b></span>
+          <i data-ph="arrow-right"></i>
+        </button>
         <h1>
           <span class="shine">Cleaner.</span>
           <span class="shine d2">Brighter.</span>
           <span class="script grad-text">Better.</span>
         </h1>
-        <svg class="brush" viewBox="0 0 440 34" aria-hidden="true"><defs><linearGradient id="bg1" x1="0" x2="1"><stop offset="0" stop-color="#1673D6"/><stop offset="1" stop-color="#1EC0EC"/></linearGradient></defs><path d="M6 24 C 90 10, 240 6, 432 12" pathLength="1" fill="none" stroke="url(#bg1)" stroke-width="10" stroke-linecap="round"/><path d="M60 30 C 160 20, 290 18, 400 21" pathLength="1" fill="none" stroke="url(#bg1)" stroke-width="3" stroke-linecap="round" opacity=".5"/></svg>
-        <div class="hero-copy">
-          <p class="res">Brighton’s exterior cleaning crew. House washing, roofs, gutters, decks, patios and driveways, with soft wash or pressure wash matched to every surface.</p>
-          <p class="com">Storefronts, offices and multi-story buildings cleaned from a boom lift. Soft wash for the walls, pressure for the concrete, scheduled around your hours.</p>
-          <div class="cta-row">
-            <button class="btn btn-grad magnetic" type="button" data-open-schedule>Book online <span class="arrow" aria-hidden="true">→</span></button>
-            <a class="btn btn-white magnetic" href="#estimate">Instant price</a>
-          </div>
-          <a class="call" href="tel:+18103160788">
-            <i><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z" fill="currentColor"/></svg></i>
-            <span><small>Call or text today</small><b>810-316-0788</b></span>
-          </a>
-          <div class="trio">
-            <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7.2l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Free quotes</span>
-            <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7.2l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Fast</span>
-            <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7.2l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Reliable</span>
-            <span><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M2.5 7.2l3 3 6-6.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>Local</span>
-          </div>
+        <p class="lede res">Soft wash and pressure wash for Brighton homes. Free quotes, usually the same day.</p>
+        <p class="lede com">Storefronts, offices and multi-story buildings, washed from a lift around your hours.</p>
+        <div class="cta-row">
+          <button class="btn btn-grad magnetic" type="button" data-open-schedule>Book online <i data-ph="arrow-right" class="arrow"></i></button>
+          <a class="btn btn-white magnetic" href="tel:+18103160788"><i data-ph="phone"></i>810-316-0788</a>
         </div>
       </div>
-
-      <div class="visual" id="visual">
-        <div class="frame" id="frame">
-          <div class="stage photo" id="stageA">
-            <canvas id="washA" role="img" aria-label="Photo of an Eddie's job covered in simulated grime. Drag across it to wash it clean."></canvas>
-            <div class="stage-ui">
-              <div class="stage-row">
-                <span class="chip hint" id="hintA"><svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 8h10M8 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>Drag to wash this house</span>
-                <div class="chip meter" aria-live="polite"><div class="meter-top"><span>Clean</span><b class="num" id="pctA">0%</b></div><div class="meter-bar"><i id="barA"></i></div></div>
-              </div>
-              <div class="stage-row"><div class="stage-actions">
-                <button class="chip chip-btn" type="button" id="autoA"><svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 2l9 5-9 5z" fill="currentColor"/></svg>Wash it for me</button>
-                <button class="chip chip-btn" type="button" id="resetA">Reset</button>
-              </div></div>
-            </div>
-            <div class="done-toast" id="doneA" role="status">
-              <strong>Cleaner. Brighter. <em class="grad-text">Better.</em></strong>
-              <span>That’s an Eddie’s house wash. Want yours to look like this?</span>
-              <button class="btn btn-grad" type="button" data-open-schedule>Book a wash <span class="arrow" aria-hidden="true">→</span></button>
-            </div>
-          </div>
-        </div>
-        <div class="float f1" data-depth="30"><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3C8 8 6 11 6 14a6 6 0 0 0 12 0c0-3-2-6-6-11z" fill="#fff"/></svg></span><span><b>Soft wash</b><small>90 PSI on siding</small></span></div>
-        <div class="float f2" data-depth="-24"><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21c-5-3-8-7-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4-3 8-8 11z" fill="#fff"/></svg></span><span><b>Plants protected</b><small>Pre-wet &amp; rinsed</small></span></div>
-        <div class="float f3" data-depth="18"><span class="fi"><svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h10v-3H4zM9 17L18 6M16 3h6v4h-6z" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span><b>Lift access</b><small>Up to 3 stories</small></span></div>
-        <p class="cap">Real Eddie’s job: a three-story soft wash from a boom lift</p>
+      <div class="collage" id="collage" aria-label="Photos from an Eddie's job in Brighton">
+        <figure class="shot main" data-depth="14"><img src="job.jpg" alt="A three-story navy house being soft washed from a red boom lift" fetchpriority="high"></figure>
+        <figure class="shot round" data-depth="-22"><img src="garden.jpg" alt="Flower beds next to the house, protected during the wash" loading="lazy"></figure>
+        <span class="drip" aria-hidden="true" data-depth="34"></span><span class="drip d2" aria-hidden="true" data-depth="-30"></span>
       </div>
     </div>
   </section>
@@ -793,106 +756,32 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
   <section class="block" id="services">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div>
-          <span class="eyebrow"><i></i><span class="res">For your home</span><span class="com">For your business</span></span>
-          <h2><span class="res">Everything outside, <span class="script grad-text">handled.</span></span><span class="com">Your whole exterior. <span class="script grad-text">One call.</span></span></h2>
+          <h2><span class="res">Everything outside, <em>handled.</em></span><span class="com">Your whole exterior. <em>One call.</em></span></h2>
+          <p><span class="res">Tap “Add” on anything you need. It goes straight into your price estimate and your booking.</span><span class="com">One-time cleanups or a recurring schedule. Add services and your estimate updates as you go.</span></p>
         </div>
-        <p><span class="res">Tap “Add” on anything you need. It goes straight into your price estimate and your booking.</span><span class="com">One-time cleanups or a recurring schedule. Add services and your estimate updates as you go.</span></p>
-      </div>
       <div class="bento res" id="bentoRes"></div>
       <div class="bento com" id="bentoCom"></div>
     </div>
   </section>
 
-  <!-- PROCESS (scrollytelling) -->
-  <section class="block" id="process" style="padding-top:0">
-    <div class="wrap">
-      <div class="sec-head reveal">
-        <div>
-          <span class="eyebrow"><i></i>How it works</span>
-          <h2>Call to clean in <span class="script grad-text">four steps.</span></h2>
-        </div>
-        <p>Most homes are done in an afternoon. You don’t have to be home. Eddie texts when he arrives and when he’s done.</p>
+  <!-- PROCESS: pinned scroll wash -->
+  <section class="wash" id="process" data-step="1">
+    <div class="wrap wash-pin">
+      <div class="wash-steps">
+        <h2>From grimy to <em>like new.</em></h2>
+        <div class="wstep" data-s="1"><span class="wn">1</span><b>Free quote</b><span class="res">Text a few photos or book online. You get a firm price, usually the same day.</span><span class="com">Eddie walks the property with your manager and sends a written scope.</span></div>
+        <div class="wstep" data-s="2"><span class="wn">2</span><b>Prep</b><span>Plants pre-wet and protected, outlets and lights covered, furniture moved.</span></div>
+        <div class="wstep" data-s="3"><span class="wn">3</span><b>Wash</b><span>Soft wash for siding and roofs, pressure for concrete, hand detail on trim.</span></div>
+        <div class="wstep" data-s="4"><span class="wn">4</span><b>Walkthrough</b><span>Look it over together, or get before-and-after photos by text.</span></div>
       </div>
-      <div class="story">
-        <div class="story-sticky">
-          <div class="story-card">
-            <span class="stepnum" id="stepNum">01</span>
-            <span class="steplabel" id="stepLabel">Free quote</span>
-            <svg id="storySvg" data-step="1" viewBox="0 0 520 420" role="img" aria-label="Illustration of a house moving through quote, prep, wash and finished states">
-              <defs>
-                <clipPath id="washClip"><rect id="washRect" x="0" y="0" width="0" height="420"/></clipPath>
-                <pattern id="sdD" width="10" height="14" patternUnits="userSpaceOnUse"><rect width="10" height="14" fill="#6E7660"/><rect y="12" width="10" height="2" fill="#565C48"/></pattern>
-                <pattern id="sdC" width="10" height="14" patternUnits="userSpaceOnUse"><rect width="10" height="14" fill="#2F64AE"/><rect y="12" width="10" height="2" fill="#24518F"/></pattern>
-                <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#BFE3FF"/><stop offset="1" stop-color="#F2F9FF"/></linearGradient>
-              </defs>
-              <rect width="520" height="420" fill="url(#skyG)"/>
-              <circle cx="440" cy="80" r="34" fill="#FFE38A"/>
-              <rect y="350" width="520" height="70" fill="#9ED98E"/>
-              <rect y="350" width="520" height="8" fill="#86C977"/>
-              <!-- dirty house -->
-              <g>
-                <polygon points="90,190 260,90 430,190" fill="#2E302A"/>
-                <path d="M150 160 l6 50 M220 120 l4 40 M310 125 l-3 45 M370 160 l-5 38" stroke="#161712" stroke-width="8" opacity=".6"/>
-                <rect x="115" y="188" width="290" height="162" fill="url(#sdD)"/>
-                <rect x="150" y="222" width="62" height="56" fill="#56656B" stroke="#9A9C8A" stroke-width="6"/>
-                <rect x="308" y="222" width="62" height="56" fill="#56656B" stroke="#9A9C8A" stroke-width="6"/>
-                <rect x="232" y="262" width="56" height="88" fill="#4A4E44"/>
-              </g>
-              <!-- clean house, revealed by the wash clip -->
-              <g clip-path="url(#washClip)">
-                <polygon points="90,190 260,90 430,190" fill="#3C4552"/>
-                <rect x="115" y="188" width="290" height="162" fill="url(#sdC)"/>
-                <rect x="150" y="222" width="62" height="56" fill="#A9D7F3" stroke="#fff" stroke-width="6"/>
-                <path d="M158 228 l20 0 -20 26z" fill="#fff" opacity=".6"/>
-                <rect x="308" y="222" width="62" height="56" fill="#A9D7F3" stroke="#fff" stroke-width="6"/>
-                <path d="M316 228 l20 0 -20 26z" fill="#fff" opacity=".6"/>
-                <rect x="232" y="262" width="56" height="88" fill="#fff"/>
-                <circle cx="278" cy="308" r="4" fill="#1673D6"/>
-              </g>
-              <!-- bushes -->
-              <g><ellipse cx="120" cy="352" rx="44" ry="26" fill="#3E9A52"/><ellipse cx="400" cy="352" rx="44" ry="26" fill="#3E9A52"/><circle cx="104" cy="340" r="6" fill="#F06AA0"/><circle cx="130" cy="334" r="6" fill="#F06AA0"/><circle cx="412" cy="336" r="6" fill="#F06AA0"/></g>
-              <!-- step 1: phone + quote bubble -->
-              <g class="st s1">
-                <rect x="24" y="40" width="96" height="170" rx="16" fill="#0A2E66"/>
-                <rect x="32" y="56" width="80" height="136" rx="8" fill="#fff"/>
-                <rect x="40" y="70" width="58" height="22" rx="11" fill="#E2F0FF"/>
-                <rect x="52" y="100" width="54" height="34" rx="12" fill="#1673D6"/>
-                <text x="79" y="122" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="15" fill="#fff">$349</text>
-                <rect x="40" y="142" width="44" height="18" rx="9" fill="#E2F0FF"/>
-                <g transform="translate(150 50)"><rect width="150" height="54" rx="18" fill="#fff" stroke="#1673D6" stroke-width="3"/><text x="75" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="20" fill="#0A2E66">FREE QUOTE ✓</text></g>
-              </g>
-              <!-- step 2: tarps over plants -->
-              <g class="st s2">
-                <path d="M72 356 Q120 300 168 356z" fill="#5FB6FF" opacity=".75"/>
-                <path d="M352 356 Q400 300 448 356z" fill="#5FB6FF" opacity=".75"/>
-                <g transform="translate(176 40)"><rect width="168" height="54" rx="18" fill="#fff" stroke="#12B386" stroke-width="3"/><text x="84" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="20" fill="#0A2E66">PLANTS COVERED ✓</text></g>
-              </g>
-              <!-- step 3: spray -->
-              <g class="st s3">
-                <path d="M480 340 L430 300" stroke="#3B4250" stroke-width="8" stroke-linecap="round"/>
-                <path d="M430 300 Q 360 200 300 240" class="spray-arc" fill="none" stroke="#5FD0FF" stroke-width="5" stroke-linecap="round"/>
-                <path d="M430 300 Q 350 230 290 280" class="spray-arc" fill="none" stroke="#9EE4FF" stroke-width="4" stroke-linecap="round"/>
-                <path d="M430 300 Q 370 180 320 200" class="spray-arc" fill="none" stroke="#BFEFFF" stroke-width="3" stroke-linecap="round"/>
-              </g>
-              <!-- step 4: sparkles -->
-              <g class="st s4">
-                <path class="twinkle" d="M120 120l6 14 14 6-14 6-6 14-6-14-14-6 14-6z" fill="#FFC83D"/>
-                <path class="twinkle" d="M400 150l5 11 11 5-11 5-5 11-5-11-11-5 11-5z" fill="#1EC0EC"/>
-                <path class="twinkle" d="M300 70l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#FFC83D"/>
-                <g transform="translate(150 22)"><rect width="220" height="54" rx="18" fill="#1673D6"/><text x="110" y="35" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="21" fill="#fff">CLEANER · BRIGHTER · BETTER</text></g>
-              </g>
-              <rect id="washLine" x="0" y="80" width="4" height="280" fill="#5FD0FF" opacity="0"/>
-            </svg>
-          </div>
-          <div class="dots" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i></div>
+      <div class="wash-stage">
+        <div class="wash-photo">
+          <img src="job.jpg" alt="Eddie's job photo, shown going from grimy to clean as you scroll" loading="lazy">
+          <canvas id="washGrime" aria-hidden="true"></canvas>
+          <span class="rinse" aria-hidden="true"></span>
         </div>
-        <div class="steps">
-          <article class="step on" data-step="1" data-label="Free quote"><span class="n">Step 01 · Day one</span><h3>Free quote</h3><p class="res">Call, text or book online with a few photos. You get a firm price, usually the same day.</p><p class="com">Eddie walks the property with your manager and sends a written scope.</p></article>
-          <article class="step" data-step="2" data-label="Prep"><span class="n">Step 02 · Wash day</span><h3>Prep</h3><p>Outlets and lights covered, plants pre-wet and protected, furniture and grills moved.</p></article>
-          <article class="step" data-step="3" data-label="Wash"><span class="n">Step 03 · A few hours</span><h3>Wash</h3><p>Soft wash for siding and roofs, pressure wash for concrete, and hand detail on trim and doors.</p></article>
-          <article class="step" data-step="4" data-label="Done"><span class="n">Step 04 · Same day</span><h3>Walkthrough</h3><p>Look it over together, or get before-and-after photos by text. Then enjoy the curb appeal.</p></article>
-        </div>
+        <figure class="inset" style="margin:0" aria-hidden="true"><img src="garden.jpg" alt="" loading="lazy"></figure>
+        <div class="ba" aria-hidden="true"><span>Before</span><span class="ba-bar"><i></i></span><span>After</span></div>
       </div>
     </div>
   </section>
@@ -901,12 +790,10 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
   <section class="block" id="lab" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div>
           <span class="eyebrow"><i></i>Soft wash &amp; pressure wash</span>
-          <h2>Safe for your home. <span class="script grad-text">Tough on dirt.</span></h2>
+          <h2>Safe for your home. <em>Tough on dirt.</em></h2>
+          <p>Not every surface should be blasted. Pick one, see the pressure Eddie uses on it, then wash it yourself.</p>
         </div>
-        <p>Not every surface should be blasted. Pick one, see the pressure Eddie uses on it, then wash it yourself.</p>
-      </div>
       <div class="washer">
         <div class="frame">
           <div class="stage wide" id="stageB">
@@ -946,9 +833,9 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
           </div>
           <div style="display:grid;gap:12px;min-width:0">
             <dl>
-              <div><dt>Method</dt><dd id="sMethod">—</dd></div>
-              <div><dt>Solution</dt><dd id="sMix">—</dd></div>
-              <div><dt>Dwell time</dt><dd id="sDwell">—</dd></div>
+              <div><dt>Method</dt><dd id="sMethod">-</dd></div>
+              <div><dt>Solution</dt><dd id="sMix">-</dd></div>
+              <div><dt>Dwell time</dt><dd id="sDwell">-</dd></div>
             </dl>
             <p class="spec-note" id="sNote"></p>
           </div>
@@ -961,12 +848,9 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
   <section class="block est-band" id="estimate">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div>
-          <span class="eyebrow"><i></i>Instant estimate</span>
-          <h2><span class="res">Know the price <span class="script" style="color:#FFE38A">first.</span></span><span class="com">Scope it in a <span class="script" style="color:#FFE38A">minute.</span></span></h2>
+          <h2><span class="res">Know the price <em style="color:#FFE38A">first.</em></span><span class="com">Scope it in a <em style="color:#FFE38A">minute.</em></span></h2>
+          <p>Move the sliders and pick your services. Eddie confirms the final price with a free quote, and it usually lands inside this range.</p>
         </div>
-        <p>Move the sliders and pick your services. Eddie confirms the final price with a free quote, and it usually lands inside this range.</p>
-      </div>
       <div class="est">
         <div class="controls">
           <div class="ctrl res">
@@ -1026,8 +910,8 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
           </div>
           <div class="ticket-meta">
             <span>Property<br><b id="tProp">Residential</b></span>
-            <span>Size<br><b id="tSize" class="num">—</b></span>
-            <span>Date<br><b id="tDate" class="num">—</b></span>
+            <span>Size<br><b id="tSize" class="num">-</b></span>
+            <span>Date<br><b id="tDate" class="num">-</b></span>
             <span>Visits<br><b id="tVisits">One time</b></span>
           </div>
           <ul class="lines num" id="tLines"></ul>
@@ -1048,12 +932,9 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
   <section class="block" id="seasons">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div>
-          <span class="eyebrow"><i></i>Michigan exterior calendar</span>
-          <h2>Right job, <span class="script grad-text">right season.</span></h2>
+          <h2>Right job, <em>right season.</em></h2>
+          <p>Michigan weather decides what to clean and when. Here’s what makes sense right now, plus a live wash-day forecast for Brighton.</p>
         </div>
-        <p>Michigan weather decides what to clean and when. Here’s what makes sense right now, plus a live wash-day forecast for Brighton.</p>
-      </div>
       <div class="seasons">
         <div class="season-tabs" role="tablist" aria-label="Season" id="seasonTabs"><span class="season-pill" aria-hidden="true"></span></div>
         <div class="season-card reveal">
@@ -1071,15 +952,13 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
   <!-- REVIEWS -->
   <section class="block" id="reviews" style="padding-top:0">
     <div class="wrap">
-      <div class="sec-head reveal">
-        <div>
-          <span class="eyebrow"><i></i>What neighbors say</span>
-          <h2>Brighton <span class="script grad-text">notices.</span></h2>
+      <div class="rv-head"><div class="sec-head reveal" style="margin-bottom:0">
+          <h2>Brighton <em>notices.</em></h2>
+          <p>Real Google and Facebook reviews stream in here once the site goes live.</p>
         </div>
-        <p>Real Google and Facebook reviews stream in here once the site goes live.</p>
-      </div>
+        <div class="rv-ctrl"><button type="button" id="rvPrev" aria-label="Previous reviews"><i data-ph="caret-left"></i></button><button type="button" id="rvNext" aria-label="Next reviews"><i data-ph="caret-right"></i></button></div></div>
     </div>
-    <div class="rv-wall" id="rvWall"></div>
+    <div class="rv-rail" id="rvWall" tabindex="0" aria-label="Sample reviews"></div>
     <p class="rv-note">Sample reviews shown for this mockup.</p>
   </section>
 
@@ -1092,15 +971,15 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
       </div>
       <div class="about-copy reveal">
         <span class="eyebrow"><i></i>Meet Eddie</span>
-        <h2>Local crew. <span class="script grad-text">Your neighbor.</span></h2>
+        <h2>Local crew. <em>Your neighbor.</em></h2>
         <p>Eddie’s Exterior Services is Brighton-based and run by Eddie Evans. You talk to Eddie, not a call center. He sets the price, shows up when he says he will, and treats your home like it’s on his own street.</p>
         <div class="values">
-          <div class="value"><b><i><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg></i>Free quotes</b><span>Text a few photos and get a firm price, usually the same day.</span></div>
-          <div class="value"><b><i><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 1.5L3.5 9H8l-1 5.5L12.5 7H8z"/></svg></i>Fast</b><span>Most homes are done in an afternoon, with a text when he arrives and when he’s done.</span></div>
-          <div class="value"><b><i><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="8" r="6"/><path d="M8 4.5V8l2.5 1.5"/></svg></i>Reliable</b><span>On time, clear windows, and he reschedules by text if the weather turns.</span></div>
-          <div class="value"><b><i><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13.5S2 10 2 5.8A3 3 0 0 1 8 4.5a3 3 0 0 1 6 1.3C14 10 8 13.5 8 13.5z"/></svg></i>Local</b><span>Support local and keep Brighton beautiful. Your money stays in town.</span></div>
+          <div class="value"><b><i><i data-ph="check"></i></i>Free quotes</b><span>Text a few photos and get a firm price, usually the same day.</span></div>
+          <div class="value"><b><i><i data-ph="lightning"></i></i>Fast</b><span>Most homes are done in an afternoon, with a text when he arrives and when he’s done.</span></div>
+          <div class="value"><b><i><i data-ph="clock"></i></i>Reliable</b><span>On time, clear windows, and he reschedules by text if the weather turns.</span></div>
+          <div class="value"><b><i><i data-ph="heart"></i></i>Local</b><span>Support local and keep Brighton beautiful. Your money stays in town.</span></div>
         </div>
-        <span class="sign">— Eddie</span>
+        
       </div>
     </div>
   </section>
@@ -1109,12 +988,9 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
   <section class="block" id="area" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head reveal">
-        <div>
-          <span class="eyebrow"><i></i>Service area</span>
-          <h2>Click your area <span class="script grad-text">to schedule.</span></h2>
+          <h2>Click your area <em>to schedule.</em></h2>
+          <p>Brighton and the surrounding towns. Tap your town on the map or in the list and you’ll go straight to booking.</p>
         </div>
-        <p>Brighton and the surrounding towns. Tap your town on the map or in the list and you’ll go straight to booking.</p>
-      </div>
       <div class="area">
         <div class="map-card reveal" id="mapCard">
           <svg id="map" viewBox="0 0 600 600" aria-label="Map of Eddie's service area around Brighton, Michigan">
@@ -1174,8 +1050,7 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
   <section class="block" id="faq" style="padding-top:0">
     <div class="wrap faq">
       <div class="faq-side reveal">
-        <span class="eyebrow"><i></i>Questions</span>
-        <h2>Good to <span class="script grad-text">know.</span></h2>
+                <h2>Good to <em>know.</em></h2>
         <p>The things people ask Eddie most before their first wash.</p>
         <div class="ask">
           <b>Still wondering?</b>
@@ -1216,7 +1091,7 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
         <div><b>Explore</b><a href="#seasons" style="text-decoration:none">Seasonal guide</a><a href="#about" style="text-decoration:none">Meet Eddie</a><a href="#faq" style="text-decoration:none">FAQ</a><a href="#area" style="text-decoration:none">Service area</a></div>
       </div>
     </div>
-    <p class="local"><span>♥</span> Support local. Keep Brighton beautiful.</p>
+    <p class="local"><span><i data-ph="heart"></i></span> Support local. Keep Brighton beautiful.</p>
     <div class="credit">
       <span>© 2026 Eddie’s Exterior Services · Website concept with sample reviews, pricing and availability</span>
       <span>Designed by <a href="https://altevadigital.com" target="_blank" rel="noopener">Alteva Digital</a></span>
@@ -1246,7 +1121,7 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
           <div><dt>Date</dt><dd id="sumDate" class="empty">Not picked</dd></div>
           <div><dt>Arrival</dt><dd id="sumTime" class="empty">Not picked</dd></div>
         </dl>
-        <div><span style="font-family:var(--f-display);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.8rem;color:var(--muted)">Estimated</span><div class="sum-est num" id="sumEst">—</div></div>
+        <div><span style="font-family:var(--f-display);font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.8rem;color:var(--muted)">Estimated</span><div class="sum-est num" id="sumEst">-</div></div>
         <p class="fine">Eddie confirms the final price by text before wash day. Nothing is charged online.</p>
       </aside>
     </div>
@@ -1270,7 +1145,7 @@ const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const fine = matchMedia('(pointer: fine)').matches;
 const money = n => '$' + Math.round(n).toLocaleString('en-US');
 const r5 = n => Math.round(n / 5) * 5;
-const JOB_SRC = "job.jpg";
+const JOB_SRC = "job.jpg", ONJOB_SRC = "onjob.jpg";
 
 let toastT;
 function toast(msg){ const t = $('#toast'); t.textContent = msg; t.classList.add('show'); clearTimeout(toastT); toastT = setTimeout(() => t.classList.remove('show'), 2400); }
@@ -1290,17 +1165,11 @@ $$('[data-set-mode]').forEach(b => b.addEventListener('click', () => {
 }));
 
 /* ---------- Icons ---------- */
-const I = {
-  house:'<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M4 15L16 5l12 10"/><path d="M7 13v14h18V13"/><path d="M14 27v-7h4v7"/><path d="M22 6.5l.9 1.8 1.8.9-1.8.9-.9 1.8-.9-1.8-1.8-.9 1.8-.9z" fill="currentColor" stroke="none"/></svg>',
-  roof:'<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M3 18L16 7l13 11"/><path d="M8 18l8-6.5 8 6.5"/><path d="M22 9V5h3v6.5"/><path d="M6 24h3M14 24h4M23 24h3"/></svg>',
-  gutter:'<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M3 9h22v5H6z"/><path d="M21 14v6"/><path d="M21 24c-1.6 2-2.4 3.2-2.4 4.2a2.4 2.4 0 0 0 4.8 0c0-1-.8-2.2-2.4-4.2z" fill="currentColor"/></svg>',
-  deck:'<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M4 8h24M4 24h24"/><path d="M7 8v16M12 8v16M17 8v16M22 8v16M27 8v16"/></svg>',
-  patio:'<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M9 8h14l5 18H4z"/><path d="M6.5 17h19M13 8l-2 18M19 8l2 18"/></svg>',
-  drive:'<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M12 4L5 28M20 4l7 24"/><path d="M16 7v3M16 15v3M16 23v3"/></svg>',
-  lift:'<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"><path d="M4 26h14v-4H4z"/><circle cx="7" cy="28" r="1.5"/><circle cx="15" cy="28" r="1.5"/><path d="M11 22L22 9"/><path d="M19 5h8v5h-8z"/></svg>',
-  store:'<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M4 12l2-6h20l2 6"/><path d="M4 12h24v2a4 4 0 0 1-8 0 4 4 0 0 1-8 0 4 4 0 0 1-8 0z"/><path d="M6 17v10h20V17M13 27v-6h6v6"/></svg>',
-  bin:'<svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linejoin="round"><path d="M4 11h24l-3 15H7z"/><path d="M8 11l3-5h10l3 5"/><path d="M12 15v7M16 15v7M20 15v7"/></svg>'
-};
+const PH = {"arrow-counter-clockwise":"<path d=\"M228,128a100,100,0,0,1-98.66,100H128a99.39,99.39,0,0,1-68.62-27.29,12,12,0,0,1,16.48-17.45,76,76,0,1,0-1.57-109c-.13.13-.25.25-.39.37L54.89,92H72a12,12,0,0,1,0,24H24a12,12,0,0,1-12-12V56a12,12,0,0,1,24,0V76.72L57.48,57.06A100,100,0,0,1,228,128Z\"/>","arrow-right":"<path d=\"M224.49,136.49l-72,72a12,12,0,0,1-17-17L187,140H40a12,12,0,0,1,0-24H187L135.51,64.48a12,12,0,0,1,17-17l72,72A12,12,0,0,1,224.49,136.49Z\"/>","broom":"<path d=\"M237.24,213.21C216.12,203,204,180.64,204,152V134.73a19.94,19.94,0,0,0-12.62-18.59l-24.86-9.81a4,4,0,0,1-2.26-5.14l21.33-53A32,32,0,0,0,167.17,6,32.13,32.13,0,0,0,126.25,24.2l-.07.18-21,53.09a3.94,3.94,0,0,1-2.14,2.2,3.89,3.89,0,0,1-3,.06L74.6,69.43A19.89,19.89,0,0,0,52.87,74C31.06,96.43,20,122.68,20,152a115.46,115.46,0,0,0,32.29,80.3A12,12,0,0,0,61,236H232a12,12,0,0,0,5.24-22.79ZM68.19,92.73,91.06,102A28,28,0,0,0,127.5,86.31l20.95-53a8.32,8.32,0,0,1,10.33-4.81,8,8,0,0,1,4.61,10.57,1.17,1.17,0,0,0,0,.11L142,92.29a28.05,28.05,0,0,0,15.68,36.33L180,137.45V152c0,1,0,2.07.05,3.1l-122.44-49A101.91,101.91,0,0,1,68.19,92.73ZM116.74,212a83.73,83.73,0,0,1-22.09-39,12,12,0,0,0-23.25,6,110.27,110.27,0,0,0,14.49,33H66.25A91.53,91.53,0,0,1,44,152a84,84,0,0,1,3.41-24.11l136.67,54.66A86.58,86.58,0,0,0,198.66,212Z\"/>","buildings":"<path d=\"M240,204H228V96a20,20,0,0,0-20-20H172V32a20,20,0,0,0-28.45-18.12l-104,48.54A20.06,20.06,0,0,0,28,80.55V204H16a12,12,0,0,0,0,24H240a12,12,0,0,0,0-24ZM204,100V204H172V100ZM52,83.09,148,38.3V204H52ZM132,112v12a12,12,0,0,1-24,0V112a12,12,0,0,1,24,0Zm-40,0v12a12,12,0,0,1-24,0V112a12,12,0,0,1,24,0Zm0,52v12a12,12,0,0,1-24,0V164a12,12,0,0,1,24,0Zm40,0v12a12,12,0,0,1-24,0V164a12,12,0,0,1,24,0Z\"/>","calendar-blank":"<path d=\"M208,28H188V24a12,12,0,0,0-24,0v4H92V24a12,12,0,0,0-24,0v4H48A20,20,0,0,0,28,48V208a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V48A20,20,0,0,0,208,28ZM68,52a12,12,0,0,0,24,0h72a12,12,0,0,0,24,0h16V76H52V52ZM52,204V100H204V204Z\"/>","camera":"<path d=\"M208,52H182.42L170,33.34A12,12,0,0,0,160,28H96a12,12,0,0,0-10,5.34L73.57,52H48A28,28,0,0,0,20,80V192a28,28,0,0,0,28,28H208a28,28,0,0,0,28-28V80A28,28,0,0,0,208,52Zm4,140a4,4,0,0,1-4,4H48a4,4,0,0,1-4-4V80a4,4,0,0,1,4-4H80a12,12,0,0,0,10-5.34L102.42,52h51.15L166,70.66A12,12,0,0,0,176,76h32a4,4,0,0,1,4,4ZM128,84a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,84Zm0,72a24,24,0,1,1,24-24A24,24,0,0,1,128,156Z\"/>","caret-left":"<path d=\"M168.49,199.51a12,12,0,0,1-17,17l-80-80a12,12,0,0,1,0-17l80-80a12,12,0,0,1,17,17L97,128Z\"/>","caret-right":"<path d=\"M184.49,136.49l-80,80a12,12,0,0,1-17-17L159,128,87.51,56.49a12,12,0,1,1,17-17l80,80A12,12,0,0,1,184.49,136.49Z\"/>","chat-circle-text":"<path d=\"M172,108a12,12,0,0,1-12,12H96a12,12,0,0,1,0-24h64A12,12,0,0,1,172,108Zm-12,28H96a12,12,0,0,0,0,24h64a12,12,0,0,0,0-24Zm76-8A108,108,0,0,1,78.77,224.15L46.34,235A20,20,0,0,1,21,209.66l10.81-32.43A108,108,0,1,1,236,128Zm-24,0A84,84,0,1,0,55.27,170.06a12,12,0,0,1,1,9.81l-9.93,29.79,29.79-9.93a12.1,12.1,0,0,1,3.8-.62,12,12,0,0,1,6,1.62A84,84,0,0,0,212,128Z\"/>","check":"<path d=\"M232.49,80.49l-128,128a12,12,0,0,1-17,0l-56-56a12,12,0,1,1,17-17L96,183,215.51,63.51a12,12,0,0,1,17,17Z\"/>","clock":"<path d=\"M128,20A108,108,0,1,0,236,128,108.12,108.12,0,0,0,128,20Zm0,192a84,84,0,1,1,84-84A84.09,84.09,0,0,1,128,212Zm68-84a12,12,0,0,1-12,12H128a12,12,0,0,1-12-12V72a12,12,0,0,1,24,0v44h44A12,12,0,0,1,196,128Z\"/>","cloud-fog":"<path d=\"M120,208H72a12,12,0,0,1,0-24h48a12,12,0,0,1,0,24Zm64-24H160a12,12,0,0,0,0,24h24a12,12,0,0,0,0-24Zm-24,36H104a12,12,0,0,0,0,24h56a12,12,0,0,0,0-24ZM232,96a76.08,76.08,0,0,1-76,76H76A52,52,0,1,1,85,68.78,76,76,0,0,1,232,96Zm-24,0a52,52,0,0,0-104,0,12,12,0,0,1-24,0c0-1.24,0-2.48.09-3.71A29.28,29.28,0,0,0,76,92a28,28,0,0,0,0,56h80A52.06,52.06,0,0,0,208,96Z\"/>","cloud-lightning":"<path d=\"M156,12A80.22,80.22,0,0,0,82.39,60.36,56.76,56.76,0,0,0,76,60a56,56,0,0,0,0,112h30.81l-13.1,21.82A12,12,0,0,0,104,212h18.81l-13.1,21.82a12,12,0,1,0,20.58,12.35l24-40A12,12,0,0,0,144,188H125.19l9.6-16H156a80,80,0,0,0,0-160Zm0,136H76a32,32,0,0,1,0-64h.28c-.11,1.1-.2,2.2-.26,3.3a12,12,0,1,0,24,1.39A56.06,56.06,0,1,1,156,148Z\"/>","cloud-rain":"<path d=\"M156,12A80.22,80.22,0,0,0,82.39,60.36,56.76,56.76,0,0,0,76,60a56,56,0,0,0,0,112h29.58L86,201.34a12,12,0,1,0,20,13.32L134.42,172H156a80,80,0,0,0,0-160Zm0,136H76a32,32,0,0,1,0-64h.28c-.11,1.1-.2,2.2-.26,3.3a12,12,0,1,0,24,1.39A56.06,56.06,0,1,1,156,148Zm.65,58.66-26.67,40a12,12,0,1,1-20-13.32l26.66-40a12,12,0,1,1,20,13.32Z\"/>","cloud-snow":"<path d=\"M184,208a16,16,0,1,1-16-16A16,16,0,0,1,184,208Zm-64-16a16,16,0,1,0,16,16A16,16,0,0,0,120,192Zm-48,0a16,16,0,1,0,16,16A16,16,0,0,0,72,192ZM236,92a80.09,80.09,0,0,1-80,80H76A56,56,0,0,1,76,60a56.76,56.76,0,0,1,6.39.36A80.08,80.08,0,0,1,236,92Zm-24,0a56.06,56.06,0,0,0-112-3.31,12,12,0,1,1-24-1.38c.06-1.11.15-2.21.26-3.31H76a32,32,0,0,0,0,64h80A56.06,56.06,0,0,0,212,92Z\"/>","cloud-sun":"<path d=\"M164,68a80.39,80.39,0,0,0-18.46,2.15,59.87,59.87,0,0,0-6-7.42l7.57-10.82a12,12,0,0,0-19.66-13.77L119.87,49A59.85,59.85,0,0,0,97.61,44l-2.3-13a12,12,0,0,0-23.63,4.17l2.3,13A60,60,0,0,0,54.77,60.47L43.91,52.86A12,12,0,0,0,30.14,72.52L41,80.11A59.45,59.45,0,0,0,36,102.36l-13,2.3a12,12,0,0,0,2.07,23.82,12.59,12.59,0,0,0,2.1-.18l13-2.3a59.29,59.29,0,0,0,3.44,7.25A56,56,0,0,0,84,228h80a80,80,0,0,0,0-160ZM96,68a36,36,0,0,1,26.45,11.61,80.37,80.37,0,0,0-32.06,36.75A56.5,56.5,0,0,0,84,116a55.84,55.84,0,0,0-20.33,3.83A36,36,0,0,1,96,68Zm68,136H84a32,32,0,0,1,0-64h.28c-.11,1.1-.2,2.2-.26,3.3a12,12,0,0,0,24,1.4,55.78,55.78,0,0,1,1.74-11l.15-.55A56.06,56.06,0,1,1,164,204Z\"/>","cloud":"<path d=\"M160,36A92.09,92.09,0,0,0,79,84.36,68,68,0,1,0,72,220h88a92,92,0,0,0,0-184Zm0,160H72a44,44,0,0,1-1.82-88A91.86,91.86,0,0,0,68,128a12,12,0,0,0,24,0,68,68,0,1,1,68,68Z\"/>","copy":"<path d=\"M216,28H88A12,12,0,0,0,76,40V76H40A12,12,0,0,0,28,88V216a12,12,0,0,0,12,12H168a12,12,0,0,0,12-12V180h36a12,12,0,0,0,12-12V40A12,12,0,0,0,216,28ZM156,204H52V100H156Zm48-48H180V88a12,12,0,0,0-12-12H100V52H204Z\"/>","crane-tower":"<path d=\"M240,76H111.42L90.73,34.63A12,12,0,0,0,80,28H48A12,12,0,0,0,36,40V76H24a12,12,0,0,0,0,24H36V204H24a12,12,0,0,0,0,24H128a12,12,0,0,0,0-24H116V100h88v80H192v-4a12,12,0,0,0-24,0v8a20,20,0,0,0,20,20h20a20,20,0,0,0,20-20V100h12a12,12,0,0,0,0-24ZM60,52H72.58l12,24H60Zm0,152V164H92v40Zm32-64H60V100H92Z\"/>","drop-half":"<path d=\"M134.88,6.17a12,12,0,0,0-13.76,0,259,259,0,0,0-42.18,39C50.85,77.43,36,111.63,36,144a92,92,0,0,0,184,0C220,66.64,138.36,8.6,134.88,6.17ZM194.08,160H140V144h56A68,68,0,0,1,194.08,160ZM140,120V104h47a115,115,0,0,1,5.68,16Zm19.3-58.71A197.29,197.29,0,0,1,173.68,80H140V41.46A243.5,243.5,0,0,1,159.3,61.29ZM60,144c0-33.31,20-63.37,36.7-82.71A243.5,243.5,0,0,1,116,41.46V210.92A68.1,68.1,0,0,1,60,144Zm80,66.92V184h42.94A68,68,0,0,1,140,210.92Z\"/>","drop-simple":"<path d=\"M134.88,6.17a12,12,0,0,0-13.76,0,259,259,0,0,0-42.18,39C50.85,77.43,36,111.63,36,144a92,92,0,0,0,184,0C220,66.64,138.36,8.6,134.88,6.17ZM128,212a68.07,68.07,0,0,1-68-68c0-33.31,20-63.37,36.7-82.71A249.35,249.35,0,0,1,128,31.11a249.35,249.35,0,0,1,31.3,30.18C176,80.63,196,110.69,196,144A68.07,68.07,0,0,1,128,212Z\"/>","drop":"<path d=\"M134.88,6.17a12,12,0,0,0-13.76,0,259,259,0,0,0-42.18,39C50.85,77.43,36,111.62,36,144a92,92,0,0,0,184,0C220,66.64,138.36,8.6,134.88,6.17ZM128,212a68.07,68.07,0,0,1-68-68c0-33.31,20-63.37,36.7-82.71A249.35,249.35,0,0,1,128,31.11a249.35,249.35,0,0,1,31.3,30.18C176,80.63,196,110.69,196,144A68.07,68.07,0,0,1,128,212Zm49.62-52.4a52,52,0,0,1-34,34,12.2,12.2,0,0,1-3.6.55,12,12,0,0,1-3.6-23.45,28,28,0,0,0,18.32-18.32,12,12,0,0,1,22.9,7.2Z\"/>","eye":"<path d=\"M251,123.13c-.37-.81-9.13-20.26-28.48-39.61C196.63,57.67,164,44,128,44S59.37,57.67,33.51,83.52C14.16,102.87,5.4,122.32,5,123.13a12.08,12.08,0,0,0,0,9.75c.37.82,9.13,20.26,28.49,39.61C59.37,198.34,92,212,128,212s68.63-13.66,94.48-39.51c19.36-19.35,28.12-38.79,28.49-39.61A12.08,12.08,0,0,0,251,123.13Zm-46.06,33C183.47,177.27,157.59,188,128,188s-55.47-10.73-76.91-31.88A130.36,130.36,0,0,1,29.52,128,130.45,130.45,0,0,1,51.09,99.89C72.54,78.73,98.41,68,128,68s55.46,10.73,76.91,31.89A130.36,130.36,0,0,1,226.48,128,130.45,130.45,0,0,1,204.91,156.12ZM128,84a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,84Zm0,64a20,20,0,1,1,20-20A20,20,0,0,1,128,148Z\"/>","flower-tulip":"<path d=\"M208,44a91.55,91.55,0,0,0-33.77,6.42c-15.8-24.4-39.72-36.58-40.86-37.15a12,12,0,0,0-10.74,0c-1.14.57-25.06,12.75-40.86,37.15A91.55,91.55,0,0,0,48,44,12,12,0,0,0,36,56V96a92.14,92.14,0,0,0,80,91.22v25.36L85.37,197.27a12,12,0,0,0-10.74,21.46l48,24a12,12,0,0,0,10.74,0l48-24a12,12,0,1,0-10.74-21.46L140,212.58V187.22A92.14,92.14,0,0,0,220,96V56A12,12,0,0,0,208,44Zm-80-6.06c6.37,4.16,17.13,12.31,25.21,24.2A92.63,92.63,0,0,0,128,90.61a92.76,92.76,0,0,0-25.21-28.47C110.87,50.25,121.63,42.1,128,37.94ZM60,96V69.06A68.11,68.11,0,0,1,116,136v26.94A68.12,68.12,0,0,1,60,96Zm136,0a68.12,68.12,0,0,1-56,66.94V136a68.11,68.11,0,0,1,56-66.94Z\"/>","garage":"<path d=\"M240,188h-4V98.67A20,20,0,0,0,227.09,82l-88-58.66a19.94,19.94,0,0,0-22.18,0L28.91,82A20,20,0,0,0,20,98.67V188H16a12,12,0,0,0,0,24H240a12,12,0,0,0,0-24ZM44,100.81l84-56,84,56V188H196V120a12,12,0,0,0-12-12H72a12,12,0,0,0-12,12v68H44ZM172,132v16H140V132Zm-56,16H84V132h32ZM84,172h32v16H84Zm56,0h32v16H140Z\"/>","grid-four":"<path d=\"M200,36H56A20,20,0,0,0,36,56V200a20,20,0,0,0,20,20H200a20,20,0,0,0,20-20V56A20,20,0,0,0,200,36Zm-4,80H140V60h56ZM116,60v56H60V60ZM60,140h56v56H60Zm80,56V140h56v56Z\"/>","hand-pointing":"<path d=\"M196,84a31.94,31.94,0,0,0-11.22,2A32,32,0,0,0,148,69V44a32,32,0,0,0-64,0v66.83A32,32,0,0,0,32.25,148l4.68,8.24C71.11,216.48,86.72,244,136,244a92.1,92.1,0,0,0,92-92V116A32,32,0,0,0,196,84Zm8,68a68.08,68.08,0,0,1-68,68c-34,0-43.49-14.45-78.2-75.65l-4.69-8.28a.16.16,0,0,1,0-.07,8,8,0,0,1,13.86-8c.06.12.13.23.2.35l18.68,30A12,12,0,0,0,108,152V44a8,8,0,0,1,16,0v68a12,12,0,0,0,24,0V100a8,8,0,0,1,16,0v20a12,12,0,0,0,24,0v-4a8,8,0,0,1,16,0Z\"/>","heart":"<path d=\"M178,36c-20.09,0-37.92,7.93-50,21.56C115.92,43.93,98.09,36,78,36a66.08,66.08,0,0,0-66,66c0,72.34,105.81,130.14,110.31,132.57a12,12,0,0,0,11.38,0C138.19,232.14,244,174.34,244,102A66.08,66.08,0,0,0,178,36Zm-5.49,142.36A328.69,328.69,0,0,1,128,210.16a328.69,328.69,0,0,1-44.51-31.8C61.82,159.77,36,131.42,36,102A42,42,0,0,1,78,60c17.8,0,32.7,9.4,38.89,24.54a12,12,0,0,0,22.22,0C145.3,69.4,160.2,60,178,60a42,42,0,0,1,42,42C220,131.42,194.18,159.77,172.51,178.36Z\"/>","house-line":"<path d=\"M240,204H228V144a12,12,0,0,0,12.49-19.78L142.14,25.85a20,20,0,0,0-28.28,0L15.51,124.2A12,12,0,0,0,28,144v60H16a12,12,0,0,0,0,24H240a12,12,0,0,0,0-24ZM52,121.65l76-76,76,76V204H164V152a12,12,0,0,0-12-12H104a12,12,0,0,0-12,12v52H52ZM140,204H116V164h24Z\"/>","house":"<path d=\"M222.14,105.85l-80-80a20,20,0,0,0-28.28,0l-80,80A19.86,19.86,0,0,0,28,120v96a12,12,0,0,0,12,12h64a12,12,0,0,0,12-12V164h24v52a12,12,0,0,0,12,12h64a12,12,0,0,0,12-12V120A19.86,19.86,0,0,0,222.14,105.85ZM204,204H164V152a12,12,0,0,0-12-12H104a12,12,0,0,0-12,12v52H52V121.65l76-76,76,76Z\"/>","leaf":"<path d=\"M227.42,39.86a12,12,0,0,0-11.28-11.28c-39.6-2.33-74.59,2.34-104,13.87C84,53.48,62.31,70.58,49.39,91.9c-17.62,29.11-17.66,64.45-.45,98.19L31.51,207.52a12,12,0,0,0,17,17l17.43-17.43c16.74,8.54,33.88,12.85,50.45,12.85a91.31,91.31,0,0,0,47.74-13.3c21.32-12.92,38.42-34.62,49.45-62.75C225.08,114.46,229.75,79.46,227.42,39.86ZM151.66,186.08C131.57,198.25,108,199.17,83.94,189l84.54-84.54a12,12,0,1,0-17-17L67,172.06c-10.14-24-9.22-47.63,3-67.72,20.91-34.53,70.54-53.72,134-52.25C205.38,115.53,186.19,165.17,151.66,186.08Z\"/>","lightning":"<path d=\"M219.71,117.38a12,12,0,0,0-7.25-8.52L161.28,88.39l10.59-70.61a12,12,0,0,0-20.64-10l-112,120a12,12,0,0,0,4.31,19.33l51.18,20.47L84.13,238.22a12,12,0,0,0,20.64,10l112-120A12,12,0,0,0,219.71,117.38ZM113.6,203.55l6.27-41.77a12,12,0,0,0-7.41-12.92L68.74,131.37,142.4,52.45l-6.27,41.77a12,12,0,0,0,7.41,12.92l43.72,17.49Z\"/>","list":"<path d=\"M228,128a12,12,0,0,1-12,12H40a12,12,0,0,1,0-24H216A12,12,0,0,1,228,128ZM40,76H216a12,12,0,0,0,0-24H40a12,12,0,0,0,0,24ZM216,180H40a12,12,0,0,0,0,24H216a12,12,0,0,0,0-24Z\"/>","map-pin":"<path d=\"M128,60a44,44,0,1,0,44,44A44.05,44.05,0,0,0,128,60Zm0,64a20,20,0,1,1,20-20A20,20,0,0,1,128,124Zm0-112a92.1,92.1,0,0,0-92,92c0,77.36,81.64,135.4,85.12,137.83a12,12,0,0,0,13.76,0,259,259,0,0,0,42.18-39C205.15,170.57,220,136.37,220,104A92.1,92.1,0,0,0,128,12Zm31.3,174.71A249.35,249.35,0,0,1,128,216.89a249.35,249.35,0,0,1-31.3-30.18C80,167.37,60,137.31,60,104a68,68,0,0,1,136,0C196,137.31,176,167.37,159.3,186.71Z\"/>","paper-plane-tilt":"<path d=\"M230.14,25.86a20,20,0,0,0-19.57-5.11l-.22.07L18.44,79a20,20,0,0,0-3.06,37.25L99,157l40.71,83.65a19.81,19.81,0,0,0,18,11.38c.57,0,1.15,0,1.73-.07A19.82,19.82,0,0,0,177,237.56L235.18,45.65a1.42,1.42,0,0,0,.07-.22A20,20,0,0,0,230.14,25.86ZM156.91,221.07l-34.37-70.64,46-45.95a12,12,0,0,0-17-17l-46,46L34.93,99.09,210,46Z\"/>","park":"<path d=\"M232,188H204V172h20a12,12,0,0,0,11.64-14.91l-32-128a12,12,0,0,0-23.28,0l-32,128A12,12,0,0,0,160,172h20v16H116V176a12,12,0,0,0,0-24V140a12,12,0,0,0,0-24H32a12,12,0,0,0,0,24v12a12,12,0,0,0,0,24v12H24a12,12,0,0,0,0,24H232a12,12,0,0,0,0-24ZM192,81.48,208.63,148H175.37ZM56,140H92v12H56Zm0,36H92v12H56Zm60-76A32,32,0,1,0,84,68,32,32,0,0,0,116,100Zm0-40a8,8,0,1,1-8,8A8,8,0,0,1,116,60Z\"/>","path":"<path d=\"M200,164a36.07,36.07,0,0,0-33.94,24H72a28,28,0,0,1,0-56h96a44,44,0,0,0,0-88H72a12,12,0,0,0,0,24h96a20,20,0,0,1,0,40H72a52,52,0,0,0,0,104h94.06A36,36,0,1,0,200,164Zm0,48a12,12,0,1,1,12-12A12,12,0,0,1,200,212Z\"/>","phone":"<path d=\"M224,154.8l-47.09-21.11-.18-.08a19.94,19.94,0,0,0-19,1.75,13.08,13.08,0,0,0-1.12.84l-22.31,19c-13-7.05-26.43-20.37-33.49-33.21l19.06-22.66a11.76,11.76,0,0,0,.85-1.15,20,20,0,0,0,1.66-18.83,1.42,1.42,0,0,1-.08-.18L101.2,32A20.06,20.06,0,0,0,80.42,20.15,60.27,60.27,0,0,0,28,80c0,81.61,66.39,148,148,148a60.27,60.27,0,0,0,59.85-52.42A20.06,20.06,0,0,0,224,154.8ZM176,204A124.15,124.15,0,0,1,52,80,36.29,36.29,0,0,1,80.48,44.46l18.82,42L80.14,109.28a12,12,0,0,0-.86,1.16A20,20,0,0,0,78,130.08c9.42,19.28,28.83,38.56,48.31,48A20,20,0,0,0,146,176.63a11.63,11.63,0,0,0,1.11-.85l22.43-19.07,42,18.81A36.29,36.29,0,0,1,176,204Z\"/>","picnic-table":"<path d=\"M244,124H203.42l-24-48H192a12,12,0,0,0,0-24H64a12,12,0,0,0,0,24H76.58l-24,48H12a12,12,0,0,0,0,24H40.58L21.27,186.63a12,12,0,1,0,21.46,10.73L67.42,148H188.58l24.69,49.36a12,12,0,1,0,21.46-10.73L215.42,148H244a12,12,0,0,0,0-24ZM79.42,124l24-48h49.16l24,48Z\"/>","plant":"<path d=\"M255.62,51.65a12,12,0,0,0-11.27-11.27c-53.27-3.13-96.2,13.36-114.84,44.14-12.14,20-12.56,44.17-1.46,67.3a75.14,75.14,0,0,0-12.28,23l-12.66-12.66c7.19-16.77,6.43-34.11-2.4-48.69C86.73,90.36,54.89,78,15.55,80.27A12,12,0,0,0,4.28,91.55C2,130.89,14.36,162.73,37.45,176.71a49.76,49.76,0,0,0,26,7.27,57.54,57.54,0,0,0,22.7-4.87L112,205v23a12,12,0,0,0,24,0V198.51a51.63,51.63,0,0,1,9.49-29.95,76.82,76.82,0,0,0,32.1,7.39,64.91,64.91,0,0,0,33.89-9.46C242.25,147.85,258.76,104.92,255.62,51.65ZM49.88,156.18c-13.19-8-21.18-27.46-21.83-52.13,24.67.65,44.14,8.64,52.13,21.83a26,26,0,0,1,3.63,17L72.48,131.51a12,12,0,0,0-17,17l11.34,11.34A26.27,26.27,0,0,1,49.88,156.18ZM199.05,146c-10.66,6.45-23,7.67-35.81,3.76l37.25-37.24a12,12,0,0,0-17-17l-37.25,37.24C142.37,120,143.59,107.61,150,97c12.7-21,42.65-33,81.32-33H232C232.14,103,220.14,133.18,199.05,146Z\"/>","play":"<path d=\"M234.49,111.07,90.41,22.94A20,20,0,0,0,60,39.87V216.13a20,20,0,0,0,30.41,16.93l144.08-88.13a19.82,19.82,0,0,0,0-33.86ZM84,208.85V47.15L216.16,128Z\"/>","quotes":"<path d=\"M100,52H40A20,20,0,0,0,20,72v64a20,20,0,0,0,20,20H96v4a28,28,0,0,1-28,28,12,12,0,0,0,0,24,52.06,52.06,0,0,0,52-52V72A20,20,0,0,0,100,52Zm-4,80H44V76H96ZM216,52H156a20,20,0,0,0-20,20v64a20,20,0,0,0,20,20h56v4a28,28,0,0,1-28,28,12,12,0,0,0,0,24,52.06,52.06,0,0,0,52-52V72A20,20,0,0,0,216,52Zm-4,80H160V76h52Z\"/>","road-horizon":"<path d=\"M237.88,202.46a12,12,0,0,1-16.34-4.58L153,76H140v4a12,12,0,0,1-24,0V76H103L34.46,197.88a12,12,0,1,1-20.92-11.76L75.48,76H24a12,12,0,0,1,0-24H232a12,12,0,0,1,0,24H180.52l61.94,110.12A12,12,0,0,1,237.88,202.46ZM128,108a12,12,0,0,0-12,12v16a12,12,0,0,0,24,0V120A12,12,0,0,0,128,108Zm0,56a12,12,0,0,0-12,12v16a12,12,0,0,0,24,0V176A12,12,0,0,0,128,164Z\"/>","rows":"<path d=\"M208,136H48a20,20,0,0,0-20,20v36a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V156A20,20,0,0,0,208,136Zm-4,52H52V160H204Zm4-144H48A20,20,0,0,0,28,64v36a20,20,0,0,0,20,20H208a20,20,0,0,0,20-20V64A20,20,0,0,0,208,44Zm-4,52H52V68H204Z\"/>","shield-check":"<path d=\"M208,36H48A20,20,0,0,0,28,56v56c0,54.29,26.32,87.22,48.4,105.29,23.71,19.39,47.44,26,48.44,26.29a12.1,12.1,0,0,0,6.32,0c1-.28,24.73-6.9,48.44-26.29,22.08-18.07,48.4-51,48.4-105.29V56A20,20,0,0,0,208,36Zm-4,76c0,35.71-13.09,64.69-38.91,86.15A126.28,126.28,0,0,1,128,219.38a126.14,126.14,0,0,1-37.09-21.23C65.09,176.69,52,147.71,52,112V60H204ZM79.51,144.49a12,12,0,1,1,17-17L112,143l47.51-47.52a12,12,0,0,1,17,17l-56,56a12,12,0,0,1-17,0Z\"/>","shower":"<path d=\"M68,236a16,16,0,1,1-16-16A16,16,0,0,1,68,236Zm16-48a16,16,0,1,0,16,16A16,16,0,0,0,84,188Zm-64,0a16,16,0,1,0,16,16A16,16,0,0,0,20,188Zm32,0a16,16,0,1,0-16-16A16,16,0,0,0,52,188ZM256,40a12,12,0,0,1-12,12H221L195.19,77.79,173.74,203.33a20,20,0,0,1-33.86,10.8l-98-98A20,20,0,0,1,52.72,82.25l125.5-21.44,29.29-29.3A12,12,0,0,1,216,28h28A12,12,0,0,1,256,40ZM169.32,86.68l-105,17.94,87.07,87.07Z\"/>","sneaker-move":"<path d=\"M232.94,163.06l-28.62-14.31A43.78,43.78,0,0,1,180,109.39V80a12,12,0,0,0-12-12,44.05,44.05,0,0,1-44-44,12,12,0,0,0-19.25-9.56l-77,58.41-.3.23a20,20,0,0,0-1.56,29.69L139.57,216.49a12,12,0,0,0,8.49,3.51H224a20,20,0,0,0,20-20V180.94A19.88,19.88,0,0,0,232.94,163.06ZM220,196H153L46.08,89.05l12.86-9.76,41.2,41.2a12,12,0,0,0,17-17L78.25,64.65l25.24-19.14A68.24,68.24,0,0,0,156,90.94v18.45a67.62,67.62,0,0,0,37.59,60.82L220,183.42ZM55.49,184H32a12,12,0,0,1,0-24H55.49a12,12,0,0,1,0,24Zm48,24a12,12,0,0,1-12,12H48a12,12,0,0,1,0-24H91.49A12,12,0,0,1,103.49,208Z\"/>","snowflake":"<path d=\"M227.65,149.14a12,12,0,0,1-8.79,14.51l-20.67,5.08,5.4,20.16a12,12,0,0,1-23.18,6.22l-7.29-27.2L140,148.78V187l20.48,20.48a12,12,0,0,1-17,17L128,209l-15.51,15.52a12,12,0,0,1-17-17L116,187V148.78L82.88,167.91l-7.29,27.2a12,12,0,0,1-23.18-6.22l5.4-20.16-20.67-5.08a12,12,0,1,1,5.72-23.3l27.89,6.85L104,128,70.75,108.8l-27.89,6.85A11.8,11.8,0,0,1,40,116a12,12,0,0,1-2.85-23.65l20.67-5.08-5.4-20.16a12,12,0,0,1,23.18-6.22l7.29,27.2L116,107.21V69L95.52,48.48a12,12,0,0,1,17-17L128,47l15.51-15.52a12,12,0,1,1,17,17L140,69v38.24l33.12-19.12,7.29-27.2a12,12,0,0,1,23.18,6.22l-5.4,20.16,20.67,5.08A12,12,0,0,1,216,116a11.8,11.8,0,0,1-2.87-.35l-27.89-6.85L152,128l33.25,19.2,27.89-6.85A12,12,0,0,1,227.65,149.14Z\"/>","sparkle":"<path d=\"M199,125.31l-49.88-18.39L130.69,57a19.92,19.92,0,0,0-37.38,0L74.92,106.92,25,125.31a19.92,19.92,0,0,0,0,37.38l49.88,18.39L93.31,231a19.92,19.92,0,0,0,37.38,0l18.39-49.88L199,162.69a19.92,19.92,0,0,0,0-37.38Zm-63.38,35.16a12,12,0,0,0-7.11,7.11L112,212.28l-16.47-44.7a12,12,0,0,0-7.11-7.11L43.72,144l44.7-16.47a12,12,0,0,0,7.11-7.11L112,75.72l16.47,44.7a12,12,0,0,0,7.11,7.11L180.28,144ZM140,40a12,12,0,0,1,12-12h12V16a12,12,0,0,1,24,0V28h12a12,12,0,0,1,0,24H188V64a12,12,0,0,1-24,0V52H152A12,12,0,0,1,140,40ZM252,88a12,12,0,0,1-12,12h-4v4a12,12,0,0,1-24,0v-4h-4a12,12,0,0,1,0-24h4V72a12,12,0,0,1,24,0v4h4A12,12,0,0,1,252,88Z\"/>","spray-bottle":"<path d=\"M200,84a12,12,0,0,0,12-12,60.07,60.07,0,0,0-60-60H80A20,20,0,0,0,60,32V80a20,20,0,0,1-20,20,12,12,0,0,0,0,24A44.06,44.06,0,0,0,83.82,84H108v20.62a19.92,19.92,0,0,1-7.51,15.62L84.51,133A43.8,43.8,0,0,0,68,167.38V224a20,20,0,0,0,20,20H192a20,20,0,0,0,20-20V211.47A274.77,274.77,0,0,0,180.68,84ZM84,36h68a36,36,0,0,1,33.94,24H84ZM188,211.47V220H92V167.38a19.92,19.92,0,0,1,7.51-15.62l16-12.78A43.8,43.8,0,0,0,132,104.62V84h21.24A250.93,250.93,0,0,1,188,211.47Z\"/>","squares-four":"<path d=\"M100,36H56A20,20,0,0,0,36,56v44a20,20,0,0,0,20,20h44a20,20,0,0,0,20-20V56A20,20,0,0,0,100,36ZM96,96H60V60H96ZM200,36H156a20,20,0,0,0-20,20v44a20,20,0,0,0,20,20h44a20,20,0,0,0,20-20V56A20,20,0,0,0,200,36Zm-4,60H160V60h36Zm-96,40H56a20,20,0,0,0-20,20v44a20,20,0,0,0,20,20h44a20,20,0,0,0,20-20V156A20,20,0,0,0,100,136Zm-4,60H60V160H96Zm104-60H156a20,20,0,0,0-20,20v44a20,20,0,0,0,20,20h44a20,20,0,0,0,20-20V156A20,20,0,0,0,200,136Zm-4,60H160V160h36Z\"/>","stack":"<path d=\"M234.36,170A12,12,0,0,1,230,186.37l-96,56a12,12,0,0,1-12.1,0l-96-56a12,12,0,0,1,12.09-20.74l90,52.48L218,165.63A12,12,0,0,1,234.36,170ZM218,117.63,128,170.11,38.05,117.63A12,12,0,0,0,26,138.37l96,56a12,12,0,0,0,12.1,0l96-56A12,12,0,0,0,218,117.63ZM20,80a12,12,0,0,1,6-10.37l96-56a12.06,12.06,0,0,1,12.1,0l96,56a12,12,0,0,1,0,20.74l-96,56a12,12,0,0,1-12.1,0l-96-56A12,12,0,0,1,20,80Zm35.82,0L128,122.11,200.18,80,128,37.89Z\"/>","star":"<path d=\"M243,96a20.33,20.33,0,0,0-17.74-14l-56.59-4.57L146.83,24.62a20.36,20.36,0,0,0-37.66,0L87.35,77.44,30.76,82A20.45,20.45,0,0,0,19.1,117.88l43.18,37.24-13.2,55.7A20.37,20.37,0,0,0,79.57,233L128,203.19,176.43,233a20.39,20.39,0,0,0,30.49-22.15l-13.2-55.7,43.18-37.24A20.43,20.43,0,0,0,243,96ZM172.53,141.7a12,12,0,0,0-3.84,11.86L181.58,208l-47.29-29.08a12,12,0,0,0-12.58,0L74.42,208l12.89-54.4a12,12,0,0,0-3.84-11.86L41.2,105.24l55.4-4.47a12,12,0,0,0,10.13-7.38L128,41.89l21.27,51.5a12,12,0,0,0,10.13,7.38l55.4,4.47Z\"/>","storefront":"<path d=\"M236,96a12,12,0,0,0-.44-3.3L221.2,42.51A20.08,20.08,0,0,0,202,28H54A20.08,20.08,0,0,0,34.8,42.51L20.46,92.7A12,12,0,0,0,20,96h0v16a43.94,43.94,0,0,0,16,33.92V216a12,12,0,0,0,12,12H208a12,12,0,0,0,12-12V145.92A43.94,43.94,0,0,0,236,112V96ZM57.05,52H199l9.14,32H47.91Zm91,56v4a20,20,0,0,1-40,0v-4ZM53,128.71A20,20,0,0,1,44,112v-4H84v4a20,20,0,0,1-20,20,19.76,19.76,0,0,1-9.07-2.2A11.54,11.54,0,0,0,53,128.71ZM196,204H60V155.81c1.32.12,2.65.19,4,.19a43.86,43.86,0,0,0,32-13.85,43.89,43.89,0,0,0,64,0A43.86,43.86,0,0,0,192,156c1.35,0,2.68-.07,4-.19Zm16-92a20,20,0,0,1-9,16.71,11.66,11.66,0,0,0-1.88,1.09A20,20,0,0,1,172,112v-4h40Z\"/>","sun-horizon":"<path d=\"M240,148H203.89c.07-1.33.11-2.66.11-4a76,76,0,0,0-152,0c0,1.34,0,2.67.11,4H16a12,12,0,0,0,0,24H240a12,12,0,0,0,0-24ZM76,144a52,52,0,0,1,104,0c0,1.34-.07,2.67-.17,4H76.17C76.07,146.67,76,145.34,76,144Zm144,56a12,12,0,0,1-12,12H48a12,12,0,0,1,0-24H208A12,12,0,0,1,220,200ZM12.62,92.21a12,12,0,0,1,15.17-7.59l12,4a12,12,0,1,1-7.58,22.77l-12-4A12,12,0,0,1,12.62,92.21Zm56-48.41a12,12,0,1,1,22.76-7.59l4,12A12,12,0,1,1,72.62,55.8Zm140,60a12,12,0,0,1,7.59-15.18l12-4a12,12,0,0,1,7.58,22.77l-12,4a12,12,0,0,1-15.17-7.59Zm-48-55.59,4-12a12,12,0,1,1,22.76,7.59l-4,12a12,12,0,1,1-22.76-7.59Z\"/>","sun":"<path d=\"M116,36V20a12,12,0,0,1,24,0V36a12,12,0,0,1-24,0Zm80,92a68,68,0,1,1-68-68A68.07,68.07,0,0,1,196,128Zm-24,0a44,44,0,1,0-44,44A44.05,44.05,0,0,0,172,128ZM51.51,68.49a12,12,0,1,0,17-17l-12-12a12,12,0,0,0-17,17Zm0,119-12,12a12,12,0,0,0,17,17l12-12a12,12,0,1,0-17-17ZM196,72a12,12,0,0,0,8.49-3.51l12-12a12,12,0,0,0-17-17l-12,12A12,12,0,0,0,196,72Zm8.49,115.51a12,12,0,0,0-17,17l12,12a12,12,0,0,0,17-17ZM48,128a12,12,0,0,0-12-12H20a12,12,0,0,0,0,24H36A12,12,0,0,0,48,128Zm80,80a12,12,0,0,0-12,12v16a12,12,0,0,0,24,0V220A12,12,0,0,0,128,208Zm108-92H220a12,12,0,0,0,0,24h16a12,12,0,0,0,0-24Z\"/>","thermometer-simple":"<path d=\"M180,150.69V56A52,52,0,0,0,76,56v94.69a64,64,0,1,0,104,0ZM128,228a40,40,0,0,1-30.91-65.39,12,12,0,0,0,2.91-7.83V56a28,28,0,0,1,56,0v98.77a12,12,0,0,0,2.77,7.68A40,40,0,0,1,128,228Zm24-40a24,24,0,1,1-36-20.78V92a12,12,0,0,1,24,0v75.22A24,24,0,0,1,152,188Z\"/>","trash":"<path d=\"M216,48H180V36A28,28,0,0,0,152,8H104A28,28,0,0,0,76,36V48H40a12,12,0,0,0,0,24h4V208a20,20,0,0,0,20,20H192a20,20,0,0,0,20-20V72h4a12,12,0,0,0,0-24ZM100,36a4,4,0,0,1,4-4h48a4,4,0,0,1,4,4V48H100Zm88,168H68V72H188ZM116,104v64a12,12,0,0,1-24,0V104a12,12,0,0,1,24,0Zm48,0v64a12,12,0,0,1-24,0V104a12,12,0,0,1,24,0Z\"/>","tree":"<path d=\"M201.17,59.62a80,80,0,0,0-146.34,0,76,76,0,0,0,61.17,139V232a12,12,0,0,0,24,0V198.64A76.26,76.26,0,0,0,168,204l1.92,0A76,76,0,0,0,201.17,59.62ZM169.35,180A52,52,0,0,1,140,171.79V135.42l41.37-20.69a12,12,0,1,0-10.74-21.46L140,108.58V88a12,12,0,0,0-24,0v44.58L85.37,117.27a12,12,0,0,0-10.74,21.46L116,159.42v12.37A52.24,52.24,0,0,1,86.65,180c-27.53-.69-50.72-24.56-50.65-52.13a51.81,51.81,0,0,1,32.61-48.1,12,12,0,0,0,6.78-7,56,56,0,0,1,105.22,0,12,12,0,0,0,6.78,7A51.81,51.81,0,0,1,220,127.85C220.08,155.41,196.88,179.29,169.35,180Z\"/>","users-three":"<path d=\"M164.38,181.1a52,52,0,1,0-72.76,0,75.89,75.89,0,0,0-30,28.89,12,12,0,0,0,20.78,12,53,53,0,0,1,91.22,0,12,12,0,1,0,20.78-12A75.89,75.89,0,0,0,164.38,181.1ZM100,144a28,28,0,1,1,28,28A28,28,0,0,1,100,144Zm147.21,9.59a12,12,0,0,1-16.81-2.39c-8.33-11.09-19.85-19.59-29.33-21.64a12,12,0,0,1-1.82-22.91,20,20,0,1,0-24.78-28.3,12,12,0,1,1-21-11.6,44,44,0,1,1,73.28,48.35,92.18,92.18,0,0,1,22.85,21.69A12,12,0,0,1,247.21,153.59Zm-192.28-24c-9.48,2.05-21,10.55-29.33,21.65A12,12,0,0,1,6.41,136.79,92.37,92.37,0,0,1,29.26,115.1a44,44,0,1,1,73.28-48.35,12,12,0,1,1-21,11.6,20,20,0,1,0-24.78,28.3,12,12,0,0,1-1.82,22.91Z\"/>","warehouse":"<path d=\"M240,180h-4V61.13l6.51-1.39a12,12,0,1,0-5-23.47l-224,48A12,12,0,0,0,16,108a12.21,12.21,0,0,0,2.53-.26l1.48-.32V180H16a12,12,0,0,0,0,24H240a12,12,0,0,0,0-24ZM44,102.27l168-36V180H192V120a12,12,0,0,0-12-12H76a12,12,0,0,0-12,12v60H44ZM168,144H88V132h80ZM88,168h80v12H88Z\"/>","x":"<path d=\"M208.49,191.51a12,12,0,0,1-17,17L128,145,64.49,208.49a12,12,0,0,1-17-17L111,128,47.51,64.49a12,12,0,0,1,17-17L128,111l63.51-63.52a12,12,0,0,1,17,17L145,128Z\"/>","star-fill":"<path d=\"M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z\"/>"};
+const ph = (n, c = '') => `<svg class="ph ${c}" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">${PH[n] || ''}</svg>`;
+$$('[data-ph]').forEach(el => { el.outerHTML = ph(el.dataset.ph, el.className); });
+const I = { house: ph('house'), roof: ph('house-line'), gutter: ph('drop'), deck: ph('rows'), patio: ph('grid-four'), drive: ph('road-horizon'),
+  lift: ph('crane-tower'), store: ph('storefront'), bin: ph('trash') };
 
 const SERVICES = {
   res: [
@@ -1328,23 +1197,6 @@ const SERVICES = {
   $('#track').innerHTML = half + half;
 })();
 
-const HOUSE_SVG = `<svg viewBox="0 0 420 270" role="img" aria-label="Illustration of a house going from dirty to clean">
-  <defs><clipPath id="cc1"><rect x="0" y="0" height="270" width="0"><animate attributeName="width" values="0;420;420;0;0" keyTimes="0;.42;.6;.95;1" dur="7s" repeatCount="indefinite"/></rect></clipPath>
-  <pattern id="lapD" width="8" height="12" patternUnits="userSpaceOnUse"><rect width="8" height="12" fill="#4B5848"/><rect y="10" width="8" height="2" fill="#38412F"/></pattern>
-  <pattern id="lapC" width="8" height="12" patternUnits="userSpaceOnUse"><rect width="8" height="12" fill="#EAF3FF"/><rect y="10" width="8" height="2" fill="#C7D9F0"/></pattern></defs>
-  <g><polygon points="40,120 210,32 380,120" fill="#2B2D27"/><path d="M90 92 l8 60 M150 64 l4 40 M260 60 l-3 50 M320 90 l-6 40" stroke="#151612" stroke-width="7" opacity=".7"/>
-  <rect x="68" y="118" width="284" height="126" fill="url(#lapD)"/><rect x="110" y="146" width="56" height="50" fill="#5B6B70" stroke="#9a9a88" stroke-width="5"/><rect x="254" y="146" width="56" height="50" fill="#5B6B70" stroke="#9a9a88" stroke-width="5"/><rect x="186" y="170" width="46" height="74" fill="#4A4E44"/><rect x="20" y="244" width="380" height="14" rx="3" fill="#6C6A5E"/></g>
-  <g clip-path="url(#cc1)"><polygon points="40,120 210,32 380,120" fill="#45505E"/><rect x="68" y="118" width="284" height="126" fill="url(#lapC)"/><rect x="110" y="146" width="56" height="50" fill="#8FD0FF" stroke="#fff" stroke-width="5"/><path d="M118 152 l16 0 -16 20z" fill="#fff" opacity=".6"/><rect x="254" y="146" width="56" height="50" fill="#8FD0FF" stroke="#fff" stroke-width="5"/><path d="M262 152 l16 0 -16 20z" fill="#fff" opacity=".6"/><rect x="186" y="170" width="46" height="74" fill="#1673D6"/><circle cx="223" cy="208" r="3" fill="#FFE38A"/><rect x="20" y="244" width="380" height="14" rx="3" fill="#E6EDF5"/></g>
-  <path d="M342 40l4 9 9 4-9 4-4 9-4-9-9-4 9-4z" fill="#FFE38A"><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.4;.5;.62;1" dur="7s" repeatCount="indefinite"/></path>
-  <rect y="20" height="245" width="4" fill="#8FE3FF"><animate attributeName="x" values="0;416;416;0;0" keyTimes="0;.42;.6;.95;1" dur="7s" repeatCount="indefinite"/></rect>
-</svg>`;
-const STORE_SVG = `<svg viewBox="0 0 420 270" role="img" aria-label="Illustration of a storefront going from dirty to clean">
-  <defs><clipPath id="cc2"><rect x="0" y="0" height="270" width="0"><animate attributeName="width" values="0;420;420;0;0" keyTimes="0;.42;.6;.95;1" dur="7s" repeatCount="indefinite"/></rect></clipPath></defs>
-  <g><rect x="30" y="40" width="360" height="204" fill="#8E897C"/><rect x="30" y="40" width="360" height="40" fill="#5E5A50"/><path d="M60 80 l0 40 M140 80 l3 30 M300 80 l-2 45 M360 80 l0 30" stroke="#4a463c" stroke-width="6" opacity=".6"/><rect x="56" y="130" width="130" height="114" fill="#4B5A5E"/><rect x="234" y="130" width="130" height="114" fill="#4B5A5E"/><rect x="192" y="140" width="36" height="104" fill="#3c4447"/><rect x="40" y="106" width="340" height="16" fill="#3d3a33"/><rect x="10" y="244" width="400" height="16" fill="#5b5850"/></g>
-  <g clip-path="url(#cc2)"><rect x="30" y="40" width="360" height="204" fill="#F3F8FF"/><rect x="30" y="40" width="360" height="40" fill="#fff"/><text x="210" y="67" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="20" fill="#0A2E66" letter-spacing="3">MAIN STREET</text><rect x="56" y="130" width="130" height="114" fill="#8FD0FF"/><path d="M66 138 l40 0 -40 60z" fill="#fff" opacity=".55"/><rect x="234" y="130" width="130" height="114" fill="#8FD0FF"/><path d="M244 138 l40 0 -40 60z" fill="#fff" opacity=".55"/><rect x="192" y="140" width="36" height="104" fill="#1673D6"/><rect x="40" y="106" width="340" height="16" fill="#1EC0EC"/><rect x="10" y="244" width="400" height="16" fill="#E6EDF5"/></g>
-  <rect y="30" height="235" width="4" fill="#8FE3FF"><animate attributeName="x" values="0;416;416;0;0" keyTimes="0;.42;.6;.95;1" dur="7s" repeatCount="indefinite"/></rect>
-</svg>`;
-
 function buildBento(id, list, kind){
   document.getElementById(id).innerHTML = list.map(s => `
     <article class="card tilt ${s.feature ? 'feature' : ''}">
@@ -1352,7 +1204,7 @@ function buildBento(id, list, kind){
       <span class="tag">${s.tag}</span>
       <h3>${s.t}</h3>
       <p>${s.d}</p>
-      ${s.feature ? `<div class="feature-art">${kind === 'res' ? HOUSE_SVG : STORE_SVG}</div>` : ''}
+      ${s.feature ? `<figure class="feature-art"><img src="${ONJOB_SRC}" alt="Soft washing a stone chimney from a boom lift" loading="lazy"></figure>` : ''}
       <div class="card-foot"><span class="price">${s.from}</span>
         <button type="button" class="add" data-kind="${kind}" data-k="${s.k}" aria-pressed="false"><span class="add-ico" aria-hidden="true">+</span> <span class="add-txt">Add</span></button></div>
     </article>`).join('');
@@ -1433,9 +1285,9 @@ function updateEstimate(){
   const total = sub * mult;
   $('#tSize').textContent = pm.size; $('#tVisits').textContent = visits;
   $('#tLines').innerHTML = !lines.length ? '<li class="empty">Pick at least one service to see a price.</li>' :
-    lines.map(l => `<li><span>${l[0]}</span><span class="lead"></span><span>${l[1] ? money(r5(l[1])) : '—'}</span></li>`).join('') +
+    lines.map(l => `<li><span>${l[0]}</span><span class="lead"></span><span>${l[1] ? money(r5(l[1])) : '-'}</span></li>`).join('') +
     discounts.map(d => `<li class="disc"><span>${d[0]}</span><span class="lead"></span><span>${Math.round(d[1]*100)}%</span></li>`).join('');
-  $('#tTotal').textContent = total ? `${money(r5(total*.92))} – ${money(r5(total*1.08))}` : '—';
+  $('#tTotal').textContent = total ? `${money(r5(total*.92))} - ${money(r5(total*1.08))}` : '-';
   $('#tTotalLabel').textContent = mode === 'com' && perYear > 1 ? 'Estimated per visit' : 'Estimated total';
   $('#tAnnual').textContent = total && perYear > 1 ? `About ${money(r5(total * perYear))} per year across ${perYear} visits` : (total && mode === 'res' && val('resPlan') === '1' ? 'Eddie reminds you when it’s time again next year' : '');
   $('#stamp').classList.toggle('on', discounts.some(d => /Bundle|Multi/.test(d[0])));
@@ -1448,7 +1300,7 @@ function updateEstimate(){
     `Property: ${mode === 'res' ? 'Home' : 'Business'}, ${pm.size}`,
     `Services: ${svcNames.join(', ')}`,
     `Schedule: ${visits}`,
-    `Estimate: ${money(r5(total*.92))} – ${money(r5(total*1.08))}`,
+    `Estimate: ${money(r5(total*.92))} - ${money(r5(total*1.08))}`,
     'Could you send me a firm quote?'
   ].join('\n') : 'Hi Eddie! I’d like a free quote.');
 }
@@ -1457,9 +1309,9 @@ $$('.controls input').forEach(i => i.addEventListener('input', updateEstimate));
 
 /* ---------- Surfaces ---------- */
 const SURF = {
-  siding:{name:'Vinyl siding', method:'Soft wash', psi:90, mix:'House-wash mix', dwell:'5–10 min', note:'Low pressure and the right mix kill the algae instead of just blasting it, so siding stays clean longer and water never gets forced behind the panels.', done:'Siding takes about two hours on a typical two-story home.'},
+  siding:{name:'Vinyl siding', method:'Soft wash', psi:90, mix:'House-wash mix', dwell:'5-10 min', note:'Low pressure and the right mix kill the algae instead of just blasting it, so siding stays clean longer and water never gets forced behind the panels.', done:'Siding takes about two hours on a typical two-story home.'},
   stone:{name:'Stacked stone', method:'Low-pressure wash', psi:500, mix:'Masonry-safe detergent', dwell:'10 min', note:'Stone and mortar get low pressure only. The detergent lifts mildew from the deep joints, like the chimney in the photo up top.', done:'Stone chimneys and accent walls are usually part of the house wash.'},
-  deck:{name:'Wood deck', method:'Low-pressure wash', psi:500, mix:'Wood cleaner + brightener', dwell:'10–15 min', note:'Too much pressure furs up wood. A cleaner and brightener bring back the grain at low pressure, ready for stain.', done:'Decks are ready for stain after 48 hours of drying.'},
+  deck:{name:'Wood deck', method:'Low-pressure wash', psi:500, mix:'Wood cleaner + brightener', dwell:'10-15 min', note:'Too much pressure furs up wood. A cleaner and brightener bring back the grain at low pressure, ready for stain.', done:'Decks are ready for stain after 48 hours of drying.'},
   drive:{name:'Driveway', method:'Pressure wash', psi:3500, mix:'Degreaser + post-treat', dwell:'5 min', note:'Concrete can take it. A rotary surface cleaner gives an even, stripe-free finish, and a post-treatment kills what pressure leaves behind.', done:'A two-car driveway takes about an hour.'},
   roof:{name:'Shingle roof', method:'Roof soft wash', psi:60, mix:'Roof mix, no rinse', dwell:'Keeps working', note:'Black roof streaks are Gloeocapsa magma, an algae that feeds on the limestone in shingles. Pressure strips granules, so roofs only ever get soft washed.', done:'The last streaks keep fading for a few weeks after the wash.'}
 };
@@ -1701,15 +1553,34 @@ function makeWasher({stage, canvas, pct, bar, hint, done, auto, reset, getType, 
   return { build, runPass, stopAuto };
 }
 const curve = (n, f) => Array.from({length: n + 1}, (_, i) => f(i / n));
-const jobImg = new Image(); let jobReady = false;
-const washerA = makeWasher({
-  stage: $('#stageA'), canvas: $('#washA'), pct: $('#pctA'), bar: $('#barA'), hint: $('#hintA'), done: $('#doneA'), auto: $('#autoA'), reset: $('#resetA'),
-  getType: () => 'photo', getImg: () => jobReady ? jobImg : null,
-  demo: { stripe: (W, H) => curve(40, p => [W*.08 + p*W*.5, H*.36 + p*H*.12 + Math.sin(p*Math.PI*2)*H*.03]),
-          sweep: (W, H) => curve(60, p => [W*.12 + p*W*.78, H*.62 + Math.sin(p*Math.PI*2.2)*H*.06]) }
-});
-jobImg.onload = () => { jobReady = true; washerA.build(); if (!reduce) setTimeout(() => washerA.runPass(false), 900); };
-jobImg.src = JOB_SRC;
+/* Process: the pinned section's scroll progress drives the rinse line across the real photo. */
+(() => {
+  const sec = $('#process'), cv = $('#washGrime'), photo = cv.parentElement, steps = $$('.wstep'), img = new Image();
+  let builtW = 0, live = false, step = 0;
+  function build(){
+    const r = photo.getBoundingClientRect(); if (!r.width || !img.naturalWidth) return;
+    const dpr = Math.min(devicePixelRatio || 1, 2), w = Math.round(r.width * dpr);
+    if (w === builtW) return; builtW = w;
+    cv.width = w; cv.height = Math.round(r.height * dpr);
+    drawGrime(cv, 'photo', rng(35));
+  }
+  function tick(){
+    const r = sec.getBoundingClientRect(), total = Math.max(1, r.height - innerHeight);
+    const p = Math.min(1, Math.max(0, -r.top / total));
+    const s = p < .2 ? 1 : p < .4 ? 2 : p < .84 ? 3 : 4, w = Math.min(1, Math.max(0, (p - .4) / .42));
+    sec.style.setProperty('--p', p.toFixed(4)); sec.style.setProperty('--w', w.toFixed(4));
+    if (s !== step){
+      step = s; sec.dataset.step = s;
+      steps.forEach(el => { const n = +el.dataset.s; el.classList.toggle('on', n === s); el.classList.toggle('past', n < s); });
+    }
+    sec.dataset.done = w >= 1 ? '1' : '0';
+    if (live) requestAnimationFrame(tick);
+  }
+  new IntersectionObserver(es => { const was = live; live = es[0].isIntersecting; if (live && !was) requestAnimationFrame(tick); }).observe(sec);
+  new ResizeObserver(() => { builtW = 0; build(); }).observe(photo);
+  img.onload = build; img.src = JOB_SRC;
+  tick();
+})();
 let surface = 'siding';
 const washerB = makeWasher({
   stage: $('#stageB'), canvas: $('#washB'), pct: $('#pctB'), bar: $('#barB'), hint: $('#hintB'), done: $('#doneB'), auto: $('#autoB'), reset: $('#resetB'),
@@ -1768,13 +1639,12 @@ bubbleField($('#ctaBubbles'), {count: 22, interactive: true, alpha: 1.2});
 
 /* ---------- Hero parallax + magnetic + tilt ---------- */
 if (fine && !reduce){
-  const vis = $('#visual'), frame = $('#frame');
-  vis.addEventListener('pointermove', e => {
-    const r = vis.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
-    frame.style.transform = `rotateY(${px*6}deg) rotateX(${-py*6}deg)`;
-    $$('.float').forEach(f => { const d = +f.dataset.depth; f.style.transform = `translate(${px*d}px, ${py*d}px)`; });
+  const col = $('#collage'), layers = [...col.querySelectorAll('[data-depth]')];
+  col.addEventListener('pointermove', e => {
+    const r = col.getBoundingClientRect(), px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+    layers.forEach(el => { const d = +el.dataset.depth; el.style.transform = `translate(${px*d}px, ${py*d}px)`; });
   });
-  vis.addEventListener('pointerleave', () => { frame.style.transform = ''; $$('.float').forEach(f => f.style.transform = ''); });
+  col.addEventListener('pointerleave', () => layers.forEach(el => el.style.transform = ''));
   $$('.magnetic').forEach(b => {
     b.addEventListener('pointermove', e => { const r = b.getBoundingClientRect(); b.style.transform = `translate(${(e.clientX - r.left - r.width/2)*.22}px, ${(e.clientY - r.top - r.height/2)*.32}px)`; });
     b.addEventListener('pointerleave', () => b.style.transform = '');
@@ -1788,44 +1658,23 @@ if (fine && !reduce){
   document.addEventListener('pointerout', e => { const c = e.target.closest && e.target.closest('.tilt'); if (c && !c.contains(e.relatedTarget)){ c.style.setProperty('--rx','0deg'); c.style.setProperty('--ry','0deg'); } });
 }
 
-/* ---------- Process story ---------- */
-(() => {
-  const svg = $('#storySvg'), rect = $('#washRect'), line = $('#washLine'), dots = $$('.dots i');
-  let cur = 0, wNow = 0, anim;
-  function tweenTo(target){
-    cancelAnimationFrame(anim); const from = wNow, t0 = performance.now();
-    const go = t => { const p = reduce ? 1 : Math.min(1, (t - t0) / 1100), e = 1 - Math.pow(1-p, 3); wNow = from + (target - from) * e;
-      rect.setAttribute('width', wNow); line.setAttribute('x', wNow - 2); line.setAttribute('opacity', target > 0 && target < 520 ? 1 : 0);
-      if (p < 1) anim = requestAnimationFrame(go); };
-    anim = requestAnimationFrame(go);
-  }
-  function setStep(n, label){
-    if (n === cur) return; cur = n;
-    svg.dataset.step = n; $('#stepNum').textContent = '0' + n; $('#stepLabel').textContent = label;
-    dots.forEach((d,i) => d.classList.toggle('on', i === n-1));
-    $$('.step').forEach(s => s.classList.toggle('on', +s.dataset.step === n));
-    tweenTo(n === 3 ? 290 : n === 4 ? 520 : 0);
-  }
-  const io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) setStep(+en.target.dataset.step, en.target.dataset.label); }), {rootMargin:'-45% 0px -45% 0px'});
-  $$('.step').forEach(s => io.observe(s));
-  setStep(1, 'Free quote');
-})();
-
 /* ---------- Reviews ---------- */
 (() => {
   const R = [
-    ['Our siding was green on the north side for years. One afternoon and it looks brand new.','Homeowner','Brighton · House wash'],
-    ['Covered every plant and the driveway looks freshly poured.','Homeowner','Howell · Driveway + patio'],
-    ['Three-story lake house, no problem. He brought a lift and got every peak.','Homeowner','Hartland · House + gutters'],
-    ['The black streaks on our roof are gone and nobody walked on the shingles.','Homeowner','Milford · Roof cleaning'],
-    ['Texted photos at lunch, had a price by dinner. Easiest contractor ever.','Homeowner','South Lyon · House wash'],
-    ['Our restaurant patio has never looked this good before opening weekend.','Business owner','Brighton · Patio'],
-    ['Deck went from gray to honey colored. Ready for stain the next weekend.','Homeowner','Pinckney · Deck'],
-    ['Storefront and sidewalks done before we opened. Customers noticed.','Business owner','Fenton · Storefront']
+    ['Our siding was green on the north side for years. One afternoon and it looks brand new.','Homeowner','Brighton, house wash'],
+    ['Covered every plant and the driveway looks freshly poured.','Homeowner','Howell, driveway and patio'],
+    ['Three-story lake house, no problem. He brought a lift and got every peak.','Homeowner','Hartland, house and gutters'],
+    ['The black streaks on our roof are gone and nobody walked on the shingles.','Homeowner','Milford, roof cleaning'],
+    ['Texted photos at lunch, had a price by dinner. Easiest contractor ever.','Homeowner','South Lyon, house wash'],
+    ['Our restaurant patio has never looked this good before opening weekend.','Business owner','Brighton, restaurant patio'],
+    ['Deck went from gray to honey colored. Ready for stain the next weekend.','Homeowner','Pinckney, deck'],
+    ['Storefront and sidewalks done before we opened. Customers noticed.','Business owner','Fenton, storefront']
   ];
-  const card = ([q, who, where], i) => `<figure class="rv" style="margin:0"><div class="top"><span class="stars" aria-label="5 stars">★★★★★</span><span class="sample">Sample</span></div><q>${q}</q><figcaption class="who"><i>${'ABCDEFGH'[i]}${'MKRLTPJS'[i]}</i><span>${who}<small>${where}</small></span></figcaption></figure>`;
-  const a = R.slice(0,4).map(card).join(''), b = R.slice(4).map((r,i) => card(r, i+4)).join('');
-  $('#rvWall').innerHTML = `<div class="rv-row"><div class="rv-track">${a}${a}</div></div><div class="rv-row rev"><div class="rv-track">${b}${b}</div></div>`;
+  const card = ([q, who, where], i) => `<figure class="rv" style="margin:0"><div class="top"><span class="stars" aria-label="5 stars">${ph('star-fill').repeat(5)}</span><span class="sample">Sample</span></div><q>${q}</q><figcaption class="who"><i>${'ABCDEFGH'[i]}${'MKRLTPJS'[i]}</i><span>${who}<small>${where}</small></span></figcaption></figure>`;
+  const rail = $('#rvWall');
+  rail.innerHTML = R.map(card).join('');
+  const step = d => rail.scrollBy({left: d * (rail.querySelector('.rv').offsetWidth + 16), behavior: reduce ? 'auto' : 'smooth'});
+  $('#rvPrev').addEventListener('click', () => step(-1)); $('#rvNext').addEventListener('click', () => step(1));
 })();
 
 /* ---------- Availability (sample) ---------- */
@@ -1837,7 +1686,7 @@ function slotsFor(d){
   if (d - today < 2*DAY) return 0;
   const h = hash(d) % 10; return h < 2 ? 0 : h < 4 ? 1 : h < 7 ? 2 : h < 9 ? 3 : 4;
 }
-const WINDOWS = ['8–10 AM','10 AM–12 PM','12–2 PM','2–4 PM'];
+const WINDOWS = ['8-10 AM','10 AM-12 PM','12-2 PM','2-4 PM'];
 function windowsFor(d){ const n = slotsFor(d), start = hash(d) % 4; return WINDOWS.map((w,i) => ({w, open: ((i - start + 4) % 4) < n})); }
 function nextOpen(){ for (let i = 2; i < 60; i++){ const d = new Date(today.getTime() + i*DAY); if (slotsFor(d)) return d; } return null; }
 const fmtDay = d => d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
@@ -1935,7 +1784,7 @@ function summary(){
   set('#sumDate', S.date ? S.date.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'}) : '');
   set('#sumTime', S.time);
   const r = rangeFor(mode, [...S.svc]);
-  $('#sumEst').textContent = r ? `${money(r[0])} – ${money(r[1])}` : '—';
+  $('#sumEst').textContent = r ? `${money(r[0])} - ${money(r[1])}` : '-';
   $$('#stepper i').forEach((d,i) => { d.className = S.done || i+1 < S.step ? 'done' : i+1 === S.step ? 'cur' : ''; });
 }
 function nav(canBack, nextLabel = 'Continue'){
@@ -1946,19 +1795,19 @@ function render(){
   if (S.done){
     h = `<div class="sstep success">
       <div class="check"><svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 25l8 8 16-18" fill="none" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-      <h2>One tap to <span class="script grad-text">send.</span></h2>
+      <h2>One tap to <em>send.</em></h2>
       <p class="sub">Thanks, ${esc(S.name.split(' ')[0] || 'neighbor')}! Your request is ready. Tap send and it goes straight to Eddie’s phone as a text. He’ll reply to <b>${esc(S.phone)}</b> to confirm ${S.date.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})}, ${S.time}.</p>
       <div class="sms-card"><pre>${esc(bookingText())}</pre></div>
       <div class="sched-nav"><a class="btn btn-grad" href="${smsHref(bookingText())}" id="doneSend">Send to Eddie <span class="arrow" aria-hidden="true">→</span></a><button class="btn btn-white" type="button" id="doneCopy">Copy</button><button class="btn btn-white" type="button" id="doneClose">Back to the site</button></div>
       <p class="sub" style="font-size:.9rem">On a computer? Copy it and text it to 810-316-0788, or just call.</p>
     </div>`;
   } else if (S.step === 1){
-    h = `<div class="sstep"><span class="eyebrow"><i></i>Step 1 of 5</span><h2>Where’s the <span class="script grad-text">job?</span></h2><p class="sub">Pick your town. Not listed? Enter your ZIP below.</p>
+    h = `<div class="sstep"><span class="eyebrow"><i></i>Step 1 of 5</span><h2>Where’s the <em>job?</em></h2><p class="sub">Pick your town. Not listed? Enter your ZIP below.</p>
       <div class="opt-grid">${TOWNS.map(t => `<button type="button" class="opt" data-town="${t.n}" aria-pressed="${S.town === t.n}"><span class="tick">${S.town === t.n ? '✓' : ''}</span><b>${t.n}</b><small>${t.home ? 'Home base' : mi(t) + ' mi from Brighton'}</small></button>`).join('')}</div>
       <div class="zip-row" style="max-width:420px"><input class="field num" id="sZip" inputmode="numeric" maxlength="5" placeholder="Other ZIP code" aria-label="ZIP code"><button class="btn btn-navy" type="button" id="sZipGo" style="padding:12px 20px">Use ZIP</button></div>
       ${nav(false)}</div>`;
   } else if (S.step === 2){
-    h = `<div class="sstep"><span class="eyebrow"><i></i>Step 2 of 5</span><h2>What needs <span class="script grad-text">cleaning?</span></h2><p class="sub">Pick everything you want done. Three or more saves 10%.</p>
+    h = `<div class="sstep"><span class="eyebrow"><i></i>Step 2 of 5</span><h2>What needs <em>cleaning?</em></h2><p class="sub">Pick everything you want done. Three or more saves 10%.</p>
       <div class="seg" style="gap:6px">${['res','com'].map(m => `<button type="button" class="opt" data-m="${m}" aria-pressed="${mode === m}" style="padding:10px 16px;display:inline-flex"><b style="font-size:1.05rem">${m === 'res' ? 'My home' : 'My business'}</b></button>`).join('')}</div>
       <div class="opt-grid">${SERVICES[mode].map(s => `<button type="button" class="opt" data-svc="${s.k}" aria-pressed="${S.svc.has(s.k)}"><span class="tick">${S.svc.has(s.k) ? '✓' : ''}</span><span class="oi">${I[s.icon]}</span><b>${s.t}</b><small>${s.from}</small></button>`).join('')}</div>
       ${nav(true)}</div>`;
@@ -1973,17 +1822,17 @@ function render(){
       cells += `<button type="button" class="day${full ? ' full' : ''}" data-d="${+d}" ${n && !past ? '' : 'disabled'} aria-pressed="${!!sel}" aria-label="${d.toDateString()}${n ? `, ${n} openings` : ', unavailable'}${w ? `, forecast ${w.hi} degrees, ${w.rain}% rain` : ''}">${wtag}${i}${n && !past ? `<span class="av">${'<i></i>'.repeat(n)}</span>` : ''}</button>`;
     }
     const no = nextOpen();
-    h = `<div class="sstep"><span class="eyebrow"><i></i>Step 3 of 5</span><h2>Pick a <span class="script grad-text">day.</span></h2><p class="sub">Green dots show open arrival windows. Sundays are family days.</p>
+    h = `<div class="sstep"><span class="eyebrow"><i></i>Step 3 of 5</span><h2>Pick a <em>day.</em></h2><p class="sub">Green dots show open arrival windows. Sundays are family days.</p>
       <div class="quick"><button type="button" id="qNext">Next available: ${fmtDay(no)}</button></div>
       <div class="cal"><div class="cal-head"><button type="button" id="mPrev" aria-label="Previous month" ${+vm <= +minM ? 'disabled' : ''}>←</button><b>${vm.toLocaleDateString('en-US',{month:'long',year:'numeric'})}</b><button type="button" id="mNext" aria-label="Next month" ${+vm >= +maxM ? 'disabled' : ''}>→</button></div>
-      <div class="cal-grid">${cells}</div><div class="cal-legend"><span><i></i>Open arrival window</span><span><s>12</s> Fully booked</span>${Object.keys(WX).length ? '<span>☀️ Live forecast</span>' : ''}</div></div>
+      <div class="cal-grid">${cells}</div><div class="cal-legend"><span><i></i>Open arrival window</span><span><s>12</s> Fully booked</span>${Object.keys(WX).length ? `<span>${ph('sun')} Live forecast</span>` : ''}</div></div>
       ${nav(true)}</div>`;
   } else if (S.step === 4){
-    h = `<div class="sstep"><span class="eyebrow"><i></i>Step 4 of 5</span><h2>Pick an <span class="script grad-text">arrival time.</span></h2><p class="sub">${S.date.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})}. You don’t need to be home.</p>
+    h = `<div class="sstep"><span class="eyebrow"><i></i>Step 4 of 5</span><h2>Pick an <em>arrival time.</em></h2><p class="sub">${S.date.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'})}. You don’t need to be home.</p>
       <div class="slots">${windowsFor(S.date).map(w => `<button type="button" class="slot" data-t="${w.w}" ${w.open ? '' : 'disabled'} aria-pressed="${S.time === w.w}"><b>${w.w}</b><small>${w.open ? 'Open' : 'Booked'}</small></button>`).join('')}</div>
       ${nav(true)}</div>`;
   } else {
-    h = `<div class="sstep"><span class="eyebrow"><i></i>Step 5 of 5</span><h2>Where should Eddie <span class="script grad-text">text you?</span></h2><p class="sub">Your price and confirmation come by text. No payment online.</p>
+    h = `<div class="sstep"><span class="eyebrow"><i></i>Step 5 of 5</span><h2>Where should Eddie <em>text you?</em></h2><p class="sub">Your price and confirmation come by text. No payment online.</p>
       <div class="form-grid">
         <label>Name<input class="field" id="fName" autocomplete="name" value="${esc(S.name)}" placeholder="Jordan Reyes"></label>
         <label>Mobile<input class="field" id="fPhone" inputmode="tel" autocomplete="tel" value="${esc(S.phone)}" placeholder="810-555-0199"></label>
@@ -2005,7 +1854,7 @@ function bookingText(){
     `Area: ${S.town}${S.addr ? ` · ${S.addr}` : ''}`,
     `${mode === 'res' ? 'Home' : 'Business'}: ${svc.join(', ')}`,
     `Day: ${S.date.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}, ${S.time}`,
-    r ? `Website estimate: ${money(r[0])} – ${money(r[1])}` : '',
+    r ? `Website estimate: ${money(r[0])} - ${money(r[1])}` : '',
     S.notes.trim() ? `Notes: ${S.notes.trim()}` : '',
     S.texts ? 'Please text me when you’re on the way.' : ''
   ].filter(Boolean).join('\n');
@@ -2075,7 +1924,7 @@ function confetti(){
 /* ---------- Live weather (Open-Meteo, Brighton MI) ---------- */
 const WX = {};   // 'YYYY-MM-DD' -> {code, hi, lo, rain}
 const dkey = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-function wxIcon(c){ return c === 0 ? '☀️' : c <= 2 ? '🌤️' : c === 3 ? '☁️' : c <= 48 ? '🌫️' : c <= 57 ? '🌦️' : c <= 67 ? '🌧️' : c <= 77 ? '🌨️' : c <= 82 ? '🌦️' : c <= 86 ? '🌨️' : '⛈️'; }
+function wxIcon(c){ return ph(c === 0 ? 'sun' : c <= 2 ? 'cloud-sun' : c === 3 ? 'cloud' : c <= 48 ? 'cloud-fog' : c <= 67 ? 'cloud-rain' : c <= 77 ? 'cloud-snow' : c <= 82 ? 'cloud-rain' : c <= 86 ? 'cloud-snow' : 'cloud-lightning'); }
 function wxVerdict(w){
   if ((w.code >= 71 && w.code <= 77) || w.code === 85 || w.code === 86 || w.hi < 36) return ['no', 'Too cold'];
   if (w.code >= 95 || w.rain >= 70) return ['no', 'Rain out'];
@@ -2096,10 +1945,6 @@ fetch('https://api.open-meteo.com/v1/forecast?latitude=42.5295&longitude=-83.780
     const d = j.daily;
     d.time.forEach((k, i) => { WX[k] = {code: d.weather_code[i], hi: Math.round(d.temperature_2m_max[i]), lo: Math.round(d.temperature_2m_min[i]), rain: d.precipitation_probability_max[i] ?? 0}; });
     paintForecast();
-    const now = j.current, today_ = WX[dkey(today)], v = today_ ? wxVerdict(today_) : ['good', ''];
-    const chip = $('#wxChip');
-    chip.innerHTML = `<span class="wi" aria-hidden="true">${wxIcon(now.weather_code)}</span><span>Brighton now <b>${Math.round(now.temperature_2m)}°</b></span><span class="${v[0] === 'good' ? 'ok' : 'meh'}">· ${v[0] === 'good' ? 'Good wash day' : v[0] === 'ok' ? 'Iffy wash day' : 'Not a wash day'}</span>`;
-    chip.hidden = false;
     if (!sched.hidden && S.step === 3) render();
   })
   .catch(() => {
@@ -2110,19 +1955,19 @@ fetch('https://api.open-meteo.com/v1/forecast?latitude=42.5295&longitude=-83.780
 /* ---------- Seasons ---------- */
 (() => {
   const SEASONS = [
-    {k:'spring', n:'Spring', when:'March – May', h:'Spring <span class="script">refresh.</span>',
+    {k:'spring', n:'Spring', when:'March - May', h:'Spring <em style="color:#FFE38A">refresh.</em>',
       p:'Winter leaves salt, grime and green algae behind. Spring is the busiest wash season, so book early.',
       todo:[['house','House wash','Pollen, road salt and winter algae off the siding.'],['roof','Roof treatment','Stop black streaks while they’re still spreading.'],['deck','Deck cleaning','Clean it now, stain it once it warms up.']],
       res:['house','roof','deck'], com:['facade','concrete','patio'], cta:'Book a spring wash'},
-    {k:'summer', n:'Summer', when:'June – August', h:'Summer <span class="script">shine.</span>',
+    {k:'summer', n:'Summer', when:'June - August', h:'Summer <em style="color:#FFE38A">shine.</em>',
       p:'Long dry days are perfect for concrete, patios and decks. Get it sharp before grad parties and the Fourth.',
       todo:[['patio','Patios & pavers','Moss out of the joints, color back in the stone.'],['drive','Driveways','Even, stripe-free concrete for summer.'],['deck','Deck prep','Brightened and dry, ready to stain.']],
       res:['patio','drive','deck'], com:['patio','concrete','dumpster'], cta:'Book a summer clean'},
-    {k:'fall', n:'Fall', when:'September – November', h:'Fall <span class="script">prep.</span>',
+    {k:'fall', n:'Fall', when:'September - November', h:'Fall <em style="color:#FFE38A">prep.</em>',
       p:'Leaves fill the gutters, and the last warm days are your chance to wash before the freeze locks grime in until spring.',
       todo:[['gutter','Gutter clean-out','After the leaves drop, before the first freeze.'],['house','Last house wash','Before temperatures stay under 40°F.'],['drive','Driveway reset','Clean concrete before road salt season.']],
       res:['gutters','house','drive'], com:['gutters','facade','concrete'], cta:'Book before the freeze'},
-    {k:'winter', n:'Winter', when:'December – February', h:'Winter <span class="script">planning.</span>',
+    {k:'winter', n:'Winter', when:'December - February', h:'Winter <em style="color:#FFE38A">planning.</em>',
       p:'Washing pauses below freezing. Use the downtime to get on Eddie’s spring list before it fills up.',
       todo:[['house','Spring list','Reserve an early spring wash date now.'],['gutter','Mild-day gutters','Clear them on a warm spell to help prevent ice dams.'],['store','Business plans','Set a twice-a-year or quarterly schedule.']],
       res:['house','gutters'], com:['facade','gutters'], cta:'Reserve a spring date'}
