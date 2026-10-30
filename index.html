@@ -677,6 +677,10 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.45s}
 @media (max-width:860px){.wash{height:300vh;height:300svh}}
 @supports not (overflow:clip){body{overflow-x:hidden}}
+.inapp{display:none;align-items:center;gap:10px;margin:calc(env(safe-area-inset-top,0px) + 8px) 12px 0;padding:10px 10px 10px 14px;border-radius:16px;background:var(--brand);color:#fff;font-size:.9rem;line-height:1.35}
+.inapp.show{display:flex}
+.inapp b{font-weight:700}
+.inapp button{flex:none;border:0;border-radius:10px;padding:8px 12px;background:rgba(255,255,255,.16);color:#fff;font:inherit;font-weight:700;cursor:pointer}
 /* Phones: the blurred, drifting glow blobs are the costliest thing to paint. Same look as static soft gradients. */
 @media (max-width:860px),(hover:none){
   .mesh i{filter:none;animation:none;opacity:.85}
@@ -696,6 +700,7 @@ footer{padding-block:56px 40px;color:var(--muted);font-size:.92rem}
 
 <div class="progress" aria-hidden="true"></div>
 
+<div class="inapp" id="inapp" role="note"><span>Opened inside an app? For the smoothest experience, tap <b>&middot;&middot;&middot;</b> and choose <b>Open in browser</b>.</span><button type="button" id="inappX" aria-label="Dismiss">OK</button></div>
 <header class="nav">
   <div class="wrap">
     <div class="nav-inner">
@@ -2040,6 +2045,13 @@ fetch('https://api.open-meteo.com/v1/forecast?latitude=42.5295&longitude=-83.780
   $('#qa').innerHTML = QA.map((q, i) => `<details${i === 0 ? ' open' : ''}><summary>${q[0]}<i aria-hidden="true"></i></summary><div class="ans">${q[1]}</div></details>`).join('') +
     '<p class="draft">Draft answers for Eddie to review before launch.</p>';
 })();
+
+/* ---------- In-app browsers (Snapchat, Instagram, Facebook, TikTok) ---------- */
+if (/Snapchat|Instagram|FBAN|FBAV|FB_IAB|musical_ly|TikTok|BytedanceWebview/i.test(navigator.userAgent)){
+  let seen = false; try { seen = sessionStorage.getItem('eddies-inapp') === '1'; } catch(e){}
+  if (!seen){ $('#inapp').classList.add('show');
+    $('#inappX').addEventListener('click', () => { $('#inapp').classList.remove('show'); try { sessionStorage.setItem('eddies-inapp', '1'); } catch(e){} }); }
+}
 
 /* ---------- Init ---------- */
 document.body.dataset.mode = mode;

@@ -1,2 +1,12 @@
+# Mockup: kept out of search engines; link-preview bots may read it so shared links show a card.
+User-agent: Snap URL Preview Service
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
 User-agent: *
 Disallow: /
